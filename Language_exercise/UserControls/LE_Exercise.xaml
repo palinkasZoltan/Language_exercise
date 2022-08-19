@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="Language_exercise.UserControls.LE_Exercise"
+             KeyDown="ExerciseKeyControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Language_exercise.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="360" d:DesignWidth="800">
+    <Grid Background="#FF396FA2" Name="exerciseGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="10"/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Name="contentTitleGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="600"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Column="0" FontSize="20" FontWeight="Bold" Foreground="White" Content="Fill in the blank boxes with the correct translation!"/>
+            <Label Grid.Column="1" FontSize="15" FontWeight="Bold" Foreground="Black" Content="-numberOfQuestion-" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+        </Grid>
+        <ProgressBar Name="progressBar" Minimum="0" Maximum="100" Grid.Row="1"></ProgressBar>
+        <Label Grid.Row="2" Content="English:" FontSize="24" Foreground="White" Width="400" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="2" Content="German:" FontSize="24" Foreground="White" Width="400" HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="3" Name="originalLang" FontSize="24" Foreground="White" Width="400" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Content="{Binding Path=WordInOriginalLang, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Row="3" Name="result" Width="400" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right">
+
+        </TextBox>
+        <Label Grid.Row="4" Width="200" HorizontalAlignment="Left">
+            <StackPanel>
+                <Image x:Name="resultSmiley" Source="{Binding Path=ImageSource, UpdateSourceTrigger=PropertyChanged}"/>
+            </StackPanel>
+        </Label>
+        <Label Grid.Row="4" Name="resultMessage" Width="400" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20"/>
+        <Button Name="resetButton" Grid.Row="4" Content="Reset" FontSize="22" FontWeight="Bold" Background="#FF396FA2" HorizontalAlignment="Right" Width="200" Click="InitiateExercise"/>
+        <Button Name="submitButton" Grid.Row="4" Content="Submit" FontSize="22" FontWeight="Bold" Background="#FF396FA2" HorizontalAlignment="Right" Width="200" Click="SubmitSolution"/>
+    </Grid>
+</UserControl>
