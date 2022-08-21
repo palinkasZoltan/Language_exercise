@@ -138,7 +138,7 @@ namespace Language_exercise.UserControls
 
         private void UpdateStatistics(string wordToUpdate, bool isCorrectAnswer)
         {
-            WordSuccessRate currentWord = statistic.EveryWord.Find(word => word.WordPair == wordToUpdate);
+            WordSuccessRate currentWord = statistic.EveryWord.Find(word => word.Word == wordToUpdate);
 
             if (isCorrectAnswer)
             {

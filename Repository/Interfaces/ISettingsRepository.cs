@@ -7,6 +7,7 @@ namespace Repository.Interfaces
     public interface ISettingsRepository
     {
         string[] ReadSettingsData();
+
         void SaveSettings(string[] newSettings);
     }
 }

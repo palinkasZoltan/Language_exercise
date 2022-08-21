@@ -5,6 +5,7 @@
 namespace Repository
 {
     using Language_exercise.DL;
+    using Repository.Interfaces;
 
     public class StatisticsRepository : IStatisticsRepository
     {

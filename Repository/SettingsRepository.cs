@@ -5,6 +5,7 @@
 namespace Repository
 {
     using Language_exercise.DL;
+    using Repository.Interfaces;
 
     /// <summary>
     /// Contains the methods which need to be access by the SettingsLogic.

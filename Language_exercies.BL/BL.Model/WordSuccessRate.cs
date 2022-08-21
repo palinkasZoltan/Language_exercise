@@ -10,7 +10,7 @@ namespace Language_exercise.BL.Model
 
         private double numberOfCorrectAnswers;
 
-        public string WordPair { get; set; }
+        public string Word { get; set; }
 
         public double NumberOfAllAnswers
         {
@@ -56,7 +56,7 @@ namespace Language_exercise.BL.Model
 
         public WordSuccessRate(string word, int numberOfAllAnswers, double numberOfCorrectAnswers)
         {
-            this.WordPair = word;
+            this.Word = word;
             this.NumberOfAllAnswers = numberOfAllAnswers;
             this.NumberOfCorrectAnswers = numberOfCorrectAnswers;
             this.CorrectAnswerPercentage = numberOfAllAnswers == 0 ? 0 : ((double)(numberOfCorrectAnswers / numberOfAllAnswers)) * 100;

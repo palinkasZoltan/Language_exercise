@@ -4,6 +4,7 @@
 
 namespace Language_exercise.BL
 {
+    using Language_exercise.BL.Interfaces;
     using Language_exercise.BL.Model;
     using Repository;
 
@@ -38,7 +39,7 @@ namespace Language_exercise.BL
 
             foreach (WordSuccessRate item in newStats.EveryWord)
             {
-                statsRawData.Add($"{item.WordPair}-{item.NumberOfAllAnswers}-{item.NumberOfCorrectAnswers}-{item.CorrectAnswerPercentage}");
+                statsRawData.Add($"{item.Word}-{item.NumberOfAllAnswers}-{item.NumberOfCorrectAnswers}-{item.CorrectAnswerPercentage}");
             }
 
             repo.OverwriteStatistics(statsRawData);
