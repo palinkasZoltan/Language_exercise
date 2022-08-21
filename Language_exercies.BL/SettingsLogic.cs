@@ -6,7 +6,7 @@
     /// <summary>
     /// Contains all the method which is needed to handle the settings of the Exercise page.
     /// </summary>
-    public class SettingsLogic
+    public class SettingsLogic : ISettingsLogic
     {
         private SettingsRepository settingsRepository = new SettingsRepository();
 

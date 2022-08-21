@@ -6,7 +6,7 @@ namespace Repository
 {
     using Language_exercise.DL;
 
-    public class StatisticsRepository
+    public class StatisticsRepository : IStatisticsRepository
     {
         DataConnection dc = new DataConnection();
 

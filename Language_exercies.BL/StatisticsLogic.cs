@@ -10,7 +10,7 @@ namespace Language_exercise.BL
     /// <summary>
     /// Logic class for methods involving Statistics data.
     /// </summary>
-    public class StatisticsLogic
+    public class StatisticsLogic : IStatisticsLogic
     {
         StatisticsRepository repo = new StatisticsRepository();
 
@@ -18,7 +18,7 @@ namespace Language_exercise.BL
         {
             IEnumerable<string> rawData = this.repo.GetStatisticsData();
 
-            List<WordSuccessRate> everyWord = new ();
+            List<WordSuccessRate> everyWord = new();
 
             foreach (string dataRow in rawData)
             {

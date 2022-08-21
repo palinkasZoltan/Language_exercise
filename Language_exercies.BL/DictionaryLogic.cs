@@ -6,11 +6,11 @@
     using System.Reflection;
     using Repository;
 
-    public class DictionaryLogic
+    public class DictionaryLogic : IDictionaryLogic
     {
         private DictionaryRepository repo = new DictionaryRepository();
 
-        public Dictionary<string,string> GetWordsFromMultipleDictionariesBySettings(ExerciseSettings settings)
+        public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings(ExerciseSettings settings)
         {
             string[] fileNames = this.GetFilenamesFromTopicSettings(settings);
 
@@ -18,7 +18,7 @@
 
             IEnumerable<string> randomizedWordPairSet = this.RandomizeSelectedWords(rawWordPairs.ToArray(), settings);
 
-            Dictionary<string, string> splitWordPairs = new Dictionary<string,string>();
+            Dictionary<string, string> splitWordPairs = new Dictionary<string, string>();
 
             foreach (string wordPair in randomizedWordPairSet)
             {

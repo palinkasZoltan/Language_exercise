@@ -7,7 +7,7 @@ using Language_exercise.DL;
 
 namespace Repository
 {
-    public class DictionaryRepository
+    public class DictionaryRepository : IDictionaryRepository
     {
         DataConnection dc = new DataConnection();
 
