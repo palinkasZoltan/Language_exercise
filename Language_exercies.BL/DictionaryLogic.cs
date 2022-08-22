@@ -6,12 +6,16 @@
     using System.Reflection;
     using Language_exercise.BL.BL.Model;
     using Repository;
+    using Repository.Interfaces;
 
     public class DictionaryLogic : IDictionaryLogic
     {
-        private DictionaryRepository repo = new DictionaryRepository();
+        private IDictionaryRepository repo;
 
-
+        public DictionaryLogic(IDictionaryRepository dictRepo)
+        {
+            repo = dictRepo;
+        }
 
         public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings()
         {
@@ -32,6 +36,11 @@
             }
 
             return splitWordPairs;
+        }
+
+        public List<string> GetExistingDictionaryFileNames()
+        {
+            return repo.GetExistingDatabaseFileNames().ToList();
         }
 
         private string[] GetFilenamesFromTopicSettings(ExerciseSettings settings)

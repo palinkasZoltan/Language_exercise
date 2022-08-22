@@ -46,8 +46,6 @@ namespace Language_exercise
             services.AddSingleton<OtherViewModel>();
             services.AddSingleton<HomeViewModel>();
             services.AddSingleton<NavigationStore>();
-            //services.AddSingleton<ExerciseSettings>();
-            //services.AddSingleton<Statistic>();
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<MainWindow>();
         }

@@ -38,16 +38,16 @@
                     </Grid.RowDefinitions>
                     <Label Grid.Row="0" Grid.Column="0" Content="German" HorizontalContentAlignment="Center" FontSize="24" Width="100" Height="80"/>
                     <Label Grid.Row="1" Grid.Column="0" Content="English" HorizontalContentAlignment="Center" FontSize="24" Width="100" Height="80"/>
-                    <TextBox Name="germanVers" Grid.Row="0" Grid.Column="1" Style="{StaticResource ResourceKey=RoundedTextBox}" Width="280" Height="75"/>
-                    <TextBox Name="englishVers" Grid.Row="1" Grid.Column="1"  Style="{StaticResource ResourceKey=RoundedTextBox}" Width="280" Height="75"/>
+                    <TextBox Name="germanVers" Text="{Binding Path=TranslatedWord}" Grid.Row="0" Grid.Column="1" Style="{StaticResource ResourceKey=RoundedTextBox}" Width="280" Height="75"/>
+                    <TextBox Name="englishVers" Text="{Binding Path=OriginalWord}" Grid.Row="1" Grid.Column="1"  Style="{StaticResource ResourceKey=RoundedTextBox}" Width="280" Height="75"/>
                 </Grid>
                 <TextBox Grid.Column="1" TextWrapping="Wrap" Width="380" FontSize="20" IsEnabled="False"/>
-                <ListView Grid.Column="1" x:Name="wordPairsToAdd" DataContext="{Binding Path=wordsToAdd}">
+                <ListView Grid.Column="1" DataContext="{Binding Path=AdditionalWordListViews, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="German" Width="133"/>
-                            <GridViewColumn Header="English" Width="133"/>
-                            <GridViewColumn Header="Dictionary" Width="133"/>
+                            <GridViewColumn Header="German" Width="133" DisplayMemberBinding="{Binding Path=WordInTranslatedLanguage}"/>
+                            <GridViewColumn Header="English" Width="133" DisplayMemberBinding="{Binding Path=WordInOriginalLanguage}"/>
+                            <GridViewColumn Header="Dictionary" Width="133" DisplayMemberBinding="{Binding Path=FileName}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
@@ -61,8 +61,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Button x:Name="AddToListButton" Grid.Column="0" Grid.Row="0" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-                <Button x:Name="AddToDictionary" Grid.Column="0" Grid.Row="1" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                
+                <Button x:Name="AddToListButton" Grid.Column="1" Grid.Row="0" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding Path=AddToListCommand}"/>
+                <Button x:Name="AddToDictionary" Grid.Column="1" Grid.Row="1" Content="Add list to dictionary" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+                <ListBox ItemsSource="{Binding Path=currentFileNames}" SelectedItem="{Binding Path=selectedFile}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
                 <!--<Button x:Name="AddToListButton" Grid.Column="0" Grid.Row="0" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
             
             </Grid>

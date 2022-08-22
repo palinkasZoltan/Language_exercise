@@ -1,0 +1,11 @@
+Next up: 
+	-Clean up the whole code base
+	-Erase hidden dependencies
+	-Refactor where it is needed
+	-Figure out which parts of ExerciseViewModel can be extracted to ExerciseLogic
+	-Change UserControls to simple Views
+
+
+Later:
+	-Figure out how to bundle up controls
+	-

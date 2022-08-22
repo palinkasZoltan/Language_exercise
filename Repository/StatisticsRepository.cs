@@ -7,9 +7,12 @@ namespace Repository
     using Language_exercise.DL;
     using Repository.Interfaces;
 
-    public class StatisticsRepository : IStatisticsRepository
+    public class StatisticsRepository : BaseRepository, IStatisticsRepository
     {
-        DataConnection dc = new DataConnection();
+        public StatisticsRepository(DataConnection dc)
+            : base(dc)
+        {
+        }
 
         /// <summary>
         /// Gets the statistics data.

@@ -8,14 +8,14 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        SettingsLogic settingsLogic = new SettingsLogic();
+        ISettingsLogic settingsLogic;
         IStatisticsLogic statisticsLogic;
 
-        public MainWindow(IStatisticsLogic statLogic)
+        public MainWindow(IStatisticsLogic statLogic, ISettingsLogic setLogic)
         {
             this.InitializeComponent();
             statisticsLogic = statLogic;
-
+            settingsLogic = setLogic;
             this.settingsLogic.GetExerciseSettings();
             this.statisticsLogic.GetWordStatictics();
         }

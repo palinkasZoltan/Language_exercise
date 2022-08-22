@@ -38,12 +38,14 @@
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="HorizontalContentAlignment" Value="Left"/>
                 <Setter Property="HorizontalAlignment" Value="Left" />
+                <Setter Property="Foreground" Value="White" />
             </Style>
             <Style x:Key="RightPercentageLabelStyle" TargetType="Label">
                 <Setter Property="Width" Value="100"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="HorizontalContentAlignment" Value="Right"/>
                 <Setter Property="HorizontalAlignment" Value="Right" />
+                <Setter Property="Foreground" Value="White" />
             </Style>
         </Grid.Resources>
         <Grid.RowDefinitions>
@@ -66,16 +68,65 @@
         <Label Grid.Row="0" Grid.Column="0" Content="Best" FontSize="24" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <Label Grid.Row="0" Grid.Column="1" Content="Worst" FontSize="24" HorizontalContentAlignment="Center" FontWeight="Bold"/>
         <Label Grid.Row="1" Grid.Column="0" Width="300" HorizontalAlignment="Left" Content="{Binding Path=MostSuccessfulWords[0].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
-        <Label Style="{StaticResource RightPercentageLabelStyle}" Grid.Row="1" Grid.Column="0" Content="{Binding Path=MostSuccessulWords[0].CorrectAnswerPercentageAsString}"/>
-        <Label Grid.Row="1" Grid.Column="1" Content="{Binding Path=LeastSuccessfulWords[0].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="3" Grid.Column="0" Content="{Binding Path=MostSuccessfulWords[1].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
-        <Label Grid.Row="3" Grid.Column="1" Content="{Binding Path=LeastSuccessfulWords[1].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="5" Grid.Column="0" Content="{Binding Path=MostSuccessfulWords[2].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
-        <Label Grid.Row="5" Grid.Column="1" Content="{Binding Path=LeastSuccessfulWords[2].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="7" Grid.Column="0" Content="{Binding Path=MostSuccessfulWords[3].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
-        <Label Grid.Row="7" Grid.Column="1" Content="{Binding Path=LeastSuccessfulWords[3].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
-        <Label Grid.Row="9" Grid.Column="0" Content="{Binding Path=MostSuccessfulWords[4].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
-        <Label Grid.Row="9" Grid.Column="1" Content="{Binding Path=LeastSuccessfulWords[4].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource RightPercentageLabelStyle}"
+               Grid.Row="1" 
+               Grid.Column="0" 
+               Content="{Binding Path=MostSuccessfulWords[0].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="1" Grid.Column="1" Width="300" HorizontalAlignment="Right" Content="{Binding Path=LeastSuccessfulWords[0].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource LeftPercentageLabelStyle}"
+               Grid.Row="1" 
+               Grid.Column="1" 
+               Content="{Binding Path=LeastSuccessfulWords[0].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="3" Grid.Column="0" Width="300" HorizontalAlignment="Left" Content="{Binding Path=MostSuccessfulWords[1].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
+        <Label Style="{StaticResource RightPercentageLabelStyle}"
+               Grid.Row="3" 
+               Grid.Column="0" 
+               Content="{Binding Path=MostSuccessfulWords[1].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="3" Grid.Column="1" Width="300" HorizontalAlignment="Right" Content="{Binding Path=LeastSuccessfulWords[1].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource LeftPercentageLabelStyle}"
+               Grid.Row="3" 
+               Grid.Column="1" 
+               Content="{Binding Path=LeastSuccessfulWords[1].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="5" Grid.Column="0" Width="300" HorizontalAlignment="Left" Content="{Binding Path=MostSuccessfulWords[2].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
+        <Label Style="{StaticResource RightPercentageLabelStyle}"
+               Grid.Row="5" 
+               Grid.Column="0" 
+               Content="{Binding Path=MostSuccessfulWords[2].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="5" Grid.Column="1" Width="300" HorizontalAlignment="Right" Content="{Binding Path=LeastSuccessfulWords[2].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource LeftPercentageLabelStyle}"
+               Grid.Row="5" 
+               Grid.Column="1" 
+               Content="{Binding Path=LeastSuccessfulWords[2].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="7" Grid.Column="0" Width="300" HorizontalAlignment="Left" Content="{Binding Path=MostSuccessfulWords[3].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
+        <Label Style="{StaticResource RightPercentageLabelStyle}"
+               Grid.Row="7" 
+               Grid.Column="0" 
+               Content="{Binding Path=MostSuccessfulWords[3].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="7" Grid.Column="1" Width="300" HorizontalAlignment="Right" Content="{Binding Path=LeastSuccessfulWords[3].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource LeftPercentageLabelStyle}"
+               Grid.Row="7" 
+               Grid.Column="1" 
+               Content="{Binding Path=LeastSuccessfulWords[3].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="9" Grid.Column="0" Width="300" HorizontalAlignment="Left" Content="{Binding Path=MostSuccessfulWords[4].Word}" FontSize="16" HorizontalContentAlignment="Left"/>
+        <Label Style="{StaticResource RightPercentageLabelStyle}"
+               Grid.Row="9" 
+               Grid.Column="0" 
+               Content="{Binding Path=MostSuccessfulWords[4].CorrectAnswerPercentageAsString}"
+               />
+        <Label Grid.Row="9" Grid.Column="1" Width="300" HorizontalAlignment="Right" Content="{Binding Path=LeastSuccessfulWords[4].Word}" FontSize="16" HorizontalContentAlignment="Right"/>
+        <Label Style="{StaticResource LeftPercentageLabelStyle}"
+               Grid.Row="9" 
+               Grid.Column="1" 
+               Content="{Binding Path=LeastSuccessfulWords[4].CorrectAnswerPercentageAsString}"
+               />
         <ProgressBar Grid.Row="2" Grid.Column="0" Value="{Binding Path=MostSuccessfulWords[0].CorrectAnswerPercentage}"/>
         <ProgressBar Grid.Row="2" Grid.Column="1" FlowDirection="RightToLeft" Value="{Binding Path=LeastSuccessfulWords[0].CorrectAnswerPercentage}"/>
         <ProgressBar Grid.Row="4" Grid.Column="0" Value="{Binding Path=MostSuccessfulWords[1].CorrectAnswerPercentage}"/>

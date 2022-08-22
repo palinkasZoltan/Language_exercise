@@ -195,6 +195,7 @@ namespace Language_exercise.ViewModels
             ProgressbarValue += 100 / WordsToExercise.Count;
             //FocusManager.SetFocusedElement(exerciseGrid, result);
 
+            indexOfWord++;
             if (indexOfWord < WordsToExercise.Count)
             {
                 SetNextWordAsCurrent();

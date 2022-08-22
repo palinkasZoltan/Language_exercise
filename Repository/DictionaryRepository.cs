@@ -1,20 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Language_exercise.DL;
-using Repository.Interfaces;
+﻿// <copyright file="DictionaryRepository.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
 
 namespace Repository
 {
-    public class DictionaryRepository : IDictionaryRepository
+    using Language_exercise.DL;
+    using Repository.Interfaces;
+
+    public class DictionaryRepository : BaseRepository, IDictionaryRepository
     {
-        DataConnection dc = new DataConnection();
+        public DictionaryRepository(DataConnection dataConnection)
+            : base(dataConnection)
+        {
+        }
 
         public IEnumerable<string> GetMultipleDictionatriesBySettings(string[] neededFiles)
         {
             return dc.ReadDictionariesBySettings(neededFiles);
+        }
+
+        public IEnumerable<string> GetExistingDatabaseFileNames()
+        {
+            return dc.GetExistingDatabaseFileNames();
         }
     }
 }

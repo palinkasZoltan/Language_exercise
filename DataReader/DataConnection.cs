@@ -53,6 +53,11 @@ namespace Language_exercise.DL
             }
         }
 
+        public IEnumerable<string> GetExistingDatabaseFileNames()
+        {
+            return Directory.EnumerateFiles("File_DB").Select(Path.GetFileName).ToArray();
+        }
+
         /// <summary>
         /// Reads dictionary file specified in the Settings.txt file or object.
         /// </summary>

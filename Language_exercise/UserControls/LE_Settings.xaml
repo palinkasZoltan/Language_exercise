@@ -50,7 +50,7 @@
                     <CheckBox Grid.Row="2" Grid.Column="0" Name="vehiclesCheckbox" HorizontalAlignment="Left" Content="Vehicles" Margin="69,0,0,0" IsChecked="{Binding Path=IsVehiclesIncluded}"/>
                     <CheckBox Grid.Row="2" Grid.Column="1" Name="artsCheckbox" HorizontalAlignment="Left" Content="Arts" Margin="65,0,0,0" IsChecked="{Binding Path=IsArtsIncluded}"/>
                     <CheckBox Grid.Row="3" Grid.Column="0" Name="homeCheckbox" HorizontalAlignment="Left" Content="Home" Margin="68,0,0,0" IsChecked="{Binding Path=IsHomeIncluded}"/>
-                    <CheckBox Grid.Row="3" Grid.Column="1" Name="lifeCheckbox" HorizontalAlignment="Left" Content="Life" Margin="65,0,0,0" IsChecked="{Binding Path=IsALifeIncluded}"/>
+                    <CheckBox Grid.Row="3" Grid.Column="1" Name="lifeCheckbox" HorizontalAlignment="Left" Content="Life" Margin="65,0,0,0" IsChecked="{Binding Path=IsLifeIncluded}"/>
                     <CheckBox Grid.Row="4" Grid.Column="0" Name="workCheckbox" HorizontalAlignment="Center" Content="Work" IsChecked="{Binding Path=IsWorkIncluded}"/>
                     <CheckBox Grid.Row="4" Grid.Column="1" Name="otherCheckbox" HorizontalAlignment="Left" Content="Other" Margin="65,0,0,0" IsChecked="{Binding Path=IsOthersIncluded}"/>
                 </Grid>
@@ -84,7 +84,7 @@
                     <Label Grid.Column="5" HorizontalContentAlignment="Left" FontSize="8" Content=" 30"/>                    
                 </Grid>
                 <Label Grid.Row="3" Content="(If there is not enough words in the specified dictionary, the current maximum number will be selected.)" FontSize="8" HorizontalContentAlignment="Center"  VerticalContentAlignment="Top"/>
-                <Button Grid.Row="4" x:Name="saveChanges" Content="Save settings" FontSize="20" Foreground="White" Height="50" VerticalAlignment="Center" Width="400" Background="#FF396FA2" Click="SaveSettingsClick"/>
+                <Button Grid.Row="4" x:Name="saveChanges" Content="Save settings" FontSize="20" Foreground="White" Height="50" VerticalAlignment="Center" Width="400" Background="#FF396FA2" Command="{Binding Path=SaveSettingsCommand}"/>
             </Grid>
         </Grid>
     </Grid>

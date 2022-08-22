@@ -6,7 +6,6 @@ namespace Language_exercise.BL.BL.Model
 {
     public class Exercise
     {
-
         public Exercise(Dictionary<string, string> wordsToExercise)
         {
             this.WordsToExercise = wordsToExercise;

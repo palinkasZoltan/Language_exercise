@@ -10,9 +10,12 @@ namespace Repository
     /// <summary>
     /// Contains the methods which need to be access by the SettingsLogic.
     /// </summary>
-    public class SettingsRepository : ISettingsRepository
+    public class SettingsRepository : BaseRepository, ISettingsRepository
     {
-        private DataConnection dc = new DataConnection();
+        public SettingsRepository(DataConnection dc)
+            : base(dc)
+        {
+        }
 
         /// <summary>
         /// Recovers data from the Settings.txt.

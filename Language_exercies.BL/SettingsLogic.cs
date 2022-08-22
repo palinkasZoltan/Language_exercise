@@ -3,13 +3,19 @@
     using System.Reflection;
     using Language_exercise.BL.BL.Model;
     using Repository;
+    using Repository.Interfaces;
 
     /// <summary>
     /// Contains all the method which is needed to handle the settings of the Exercise page.
     /// </summary>
     public class SettingsLogic : ISettingsLogic
     {
-        private SettingsRepository settingsRepository = new SettingsRepository();
+        private ISettingsRepository settingsRepository;
+
+        public SettingsLogic(ISettingsRepository settingsRepository)
+        {
+            this.settingsRepository = settingsRepository;
+        }
 
         /// <summary>
         /// Reads the raw data from the Settings.txt file and converts it into an ExerciseSettings object.

@@ -19,17 +19,17 @@
         <Label Content="German" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontStyle="Italic" VerticalAlignment="Center" FontSize="24" Width="400" Grid.Row="0"/>
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
+                <ColumnDefinition />
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Home" Grid.Column="0" Width="160" Command="{Binding Path=ChangeToHomeCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Exercise" Grid.Column="1" Width="160" Command="{Binding Path=ChangeToExerciseCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Statistics" Grid.Column="2" Width="160" Command="{Binding Path=ChangeToStatisticsCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Settings" Grid.Column="3" Width="160" Command="{Binding Path=ChangeToSettingsCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Others" Grid.Column="4" Width="160" Command="{Binding Path=ChangeToOtherCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Home" Grid.Column="0" Command="{Binding Path=ChangeToHomeCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Exercise" Grid.Column="1" Command="{Binding Path=ChangeToExerciseCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Statistics" Grid.Column="2" Command="{Binding Path=ChangeToStatisticsCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Settings" Grid.Column="3" Command="{Binding Path=ChangeToSettingsCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Others" Grid.Column="4" Command="{Binding Path=ChangeToOtherCommand}"/>
         </Grid>
         <ContentControl Grid.Row="2" Name="contentControl" Content="{Binding Path=CurrentViewModel}">
             <ContentControl.Resources>
