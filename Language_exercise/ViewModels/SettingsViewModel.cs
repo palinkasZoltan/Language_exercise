@@ -7,7 +7,13 @@ namespace Language_exercise.ViewModels
     /// <summary>
     /// ViewModel for Settings UserControl.
     /// </summary>
-    internal class SettingsViewModel
+    public class SettingsViewModel : ViewModelBase
     {
+       
+
+        public SettingsViewModel()
+        {
+
+        }
     }
 }

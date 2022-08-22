@@ -4,14 +4,19 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Reflection;
+    using Language_exercise.BL.BL.Model;
     using Repository;
 
     public class DictionaryLogic : IDictionaryLogic
     {
         private DictionaryRepository repo = new DictionaryRepository();
 
-        public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings(ExerciseSettings settings)
+
+
+        public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings()
         {
+            ExerciseSettings settings = ExerciseSettings.Instance;
+
             string[] fileNames = this.GetFilenamesFromTopicSettings(settings);
 
             IEnumerable<string> rawWordPairs = this.repo.GetMultipleDictionatriesBySettings(fileNames);

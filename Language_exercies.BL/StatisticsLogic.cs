@@ -4,18 +4,26 @@
 
 namespace Language_exercise.BL
 {
-    using Language_exercise.BL.Interfaces;
     using Language_exercise.BL.Model;
     using Repository;
+    using Repository.Interfaces;
 
     /// <summary>
     /// Logic class for methods involving Statistics data.
     /// </summary>
     public class StatisticsLogic : IStatisticsLogic
     {
-        StatisticsRepository repo = new StatisticsRepository();
+        IStatisticsRepository repo;
 
-        public Statistic GetWordStatictics()
+        Statistic statistic;
+
+        public StatisticsLogic(IStatisticsRepository statRepo)
+        {
+            repo = statRepo;
+            statistic = Statistic.Instance;
+        }
+
+        public void GetWordStatictics()
         {
             IEnumerable<string> rawData = this.repo.GetStatisticsData();
 
@@ -29,20 +37,34 @@ namespace Language_exercise.BL
 
             WordSuccessRate[] mostSuccessfulWords = everyWord.OrderByDescending(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
             WordSuccessRate[] leastSuccessfulWords = everyWord.OrderBy(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
-
-            return new Statistic(mostSuccessfulWords, leastSuccessfulWords, everyWord);
+        
+            statistic.MostSuccessfulWords = mostSuccessfulWords;
+            statistic.LeastSuccessfulWords = leastSuccessfulWords;
+            statistic.EveryWord = everyWord;
         }
 
-        public void OverwriteStatistics(Statistic newStats)
+        public void OverwriteStatistics()
         {
             List<string> statsRawData = new List<string>();
 
-            foreach (WordSuccessRate item in newStats.EveryWord)
+            foreach (WordSuccessRate item in statistic.EveryWord)
             {
                 statsRawData.Add($"{item.Word}-{item.NumberOfAllAnswers}-{item.NumberOfCorrectAnswers}-{item.CorrectAnswerPercentage}");
             }
 
             repo.OverwriteStatistics(statsRawData);
+        }
+
+        public void UpdateStatistics(string wordToUpdate, bool isCorrectAnswer)
+        {
+            WordSuccessRate currentWord = statistic.EveryWord.Find(word => word.Word == wordToUpdate);
+
+            if (isCorrectAnswer)
+            {
+                currentWord.NumberOfCorrectAnswers++;
+            }
+
+            currentWord.NumberOfAllAnswers++;
         }
     }
 }

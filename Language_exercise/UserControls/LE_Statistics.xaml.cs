@@ -18,11 +18,9 @@ namespace Language_exercise.UserControls
         /// Initializes a new instance of the <see cref="LE_Statistics"/> class.
         /// </summary>
         /// <param name="stat">The Statistics object which will be loaded into the controls.</param>
-        public LE_Statistics(Statistic stat)
+        public LE_Statistics()
         {
             this.InitializeComponent();
-            this.statistic = stat;
-            this.StatGrid.DataContext = this.statistic;
         }
     }
 }

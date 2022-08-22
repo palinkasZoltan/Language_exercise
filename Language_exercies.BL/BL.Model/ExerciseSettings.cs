@@ -1,10 +1,30 @@
-﻿namespace Language_exercise.BL
+﻿namespace Language_exercise.BL.BL.Model
 {
     using System;
     using System.Reflection;
 
     public class ExerciseSettings
     {
+        private static ExerciseSettings instance;
+
+        private ExerciseSettings()
+        {
+
+        }
+
+        public static ExerciseSettings Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ExerciseSettings();
+                }
+
+                return instance;
+            }
+        }
+
         public int NumberOfWords { get; set; }
 
         public bool IsAllIncluded { get; set; }

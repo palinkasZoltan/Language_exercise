@@ -1,6 +1,7 @@
 ﻿namespace Language_exercise.BL
 {
     using System.Reflection;
+    using Language_exercise.BL.BL.Model;
     using Repository;
 
     /// <summary>
@@ -14,11 +15,11 @@
         /// Reads the raw data from the Settings.txt file and converts it into an ExerciseSettings object.
         /// </summary>
         /// <returns>An ExerciseSettings object with the current values.</returns>
-        public ExerciseSettings GetExerciseSettings()
+        public void GetExerciseSettings()
         {
             string[] settingsData = this.settingsRepository.ReadSettingsData();
 
-            ExerciseSettings settings = new ExerciseSettings();
+            ExerciseSettings settings = ExerciseSettings.Instance;
 
             int index = 0;
             for (int i = 0; i < settingsData.Length; i++)
@@ -37,12 +38,12 @@
 
                 index++;
             }
-
-            return settings;
         }
 
-        public void SaveSettings(ExerciseSettings newSettings)
+        public void SaveSettings()
         {
+            ExerciseSettings newSettings = ExerciseSettings.Instance;
+
             string[] settingsRawData = newSettings.ToString().Split('\n');
 
             this.settingsRepository.SaveSettings(settingsRawData);

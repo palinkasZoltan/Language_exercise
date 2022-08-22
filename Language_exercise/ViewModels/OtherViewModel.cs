@@ -7,7 +7,7 @@ namespace Language_exercise.ViewModels
     /// <summary>
     /// ViewModel class for Other UserControl.
     /// </summary>
-    internal class OtherViewModel
+    internal class OtherViewModel : ViewModelBase
     {
     }
 }

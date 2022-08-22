@@ -2,13 +2,14 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using Language_exercise.BL.Model;
-
-namespace Language_exercise.BL.Interfaces
+namespace Language_exercise.BL
 {
     public interface IStatisticsLogic
     {
-        Statistic GetWordStatictics();
-        void OverwriteStatistics(Statistic newStats);
+        void GetWordStatictics();
+
+        void OverwriteStatistics();
+
+        void UpdateStatistics(string wordToUpdate, bool isCorrectAnswer);
     }
 }

@@ -7,26 +7,27 @@ namespace Language_exercise.UserControls
     using System.Windows;
     using System.Windows.Controls;
     using Language_exercise.BL;
+    using Language_exercise.BL.BL.Model;
 
     /// <summary>
     /// Interaction logic for LE_Settings.xaml.
     /// </summary>
     public partial class LE_Settings : UserControl
     {
-        private ExerciseSettings settings = new ExerciseSettings();
+        private ExerciseSettings settings;
 
         private SettingsLogic sl = new SettingsLogic();
 
-        public LE_Settings(ExerciseSettings sessionsSettings)
+        public LE_Settings()
         {
             this.InitializeComponent();
-            this.settings = sessionsSettings;
+            this.settings = ExerciseSettings.Instance;
             this.settingsGrid.DataContext = this.settings;
         }
 
         private void SaveSettingsClick(object sender, RoutedEventArgs e)
         {
-            this.sl.SaveSettings(this.settings);
+            this.sl.SaveSettings();
         }
     }
 }

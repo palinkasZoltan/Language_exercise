@@ -7,7 +7,7 @@ namespace Language_exercise.ViewModels
     /// <summary>
     /// ViewModel class for Home view.
     /// </summary>
-    internal class HomeViewModel
+    public class HomeViewModel : ViewModelBase
     {
     }
 }

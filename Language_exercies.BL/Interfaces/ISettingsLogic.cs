@@ -1,8 +1,11 @@
-﻿namespace Language_exercise.BL
+﻿using Language_exercise.BL.BL.Model;
+
+namespace Language_exercise.BL
 {
     public interface ISettingsLogic
     {
-        ExerciseSettings GetExerciseSettings();
-        void SaveSettings(ExerciseSettings newSettings);
+        void GetExerciseSettings();
+
+        void SaveSettings();
     }
 }

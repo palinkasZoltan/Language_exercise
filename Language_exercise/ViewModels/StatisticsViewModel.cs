@@ -2,12 +2,39 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
+using System.Collections.Generic;
+using Language_exercise.BL.Model;
+
 namespace Language_exercise.ViewModels
 {
     /// <summary>
     /// ViewModel class for Statistics UserControl.
     /// </summary>
-    internal class StatisticsViewModel
+    public class StatisticsViewModel : ViewModelBase
     {
+        private Statistic statistic;
+
+        public StatisticsViewModel()
+        {
+            statistic = Statistic.Instance;
+        }
+
+        public WordSuccessRate[] MostSuccessfulWords
+        {
+            get { return statistic.MostSuccessfulWords; }
+            set { statistic.MostSuccessfulWords = value; }
+        }
+
+        public WordSuccessRate[] LeastSuccessfulWords
+        {
+            get { return statistic.LeastSuccessfulWords; }
+            set { statistic.LeastSuccessfulWords = value; }
+        }
+
+        public List<WordSuccessRate> EveryWord
+        {
+            get { return statistic.EveryWord; }
+            set { statistic.EveryWord = value; }
+        }
     }
 }

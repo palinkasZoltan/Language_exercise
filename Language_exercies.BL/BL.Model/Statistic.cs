@@ -9,7 +9,27 @@ namespace Language_exercise.BL.Model
     /// </summary>
     public class Statistic
     {
+        private static Statistic instance;
+
+        private Statistic()
+        {
+
+        }
+
         private List<WordSuccessRate> everyWord;
+
+        public static Statistic Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new Statistic();
+                }
+
+                return instance;
+            }
+        }
 
         /// <summary>
         /// Gets or sets the words which were answered correctly with the highest percentage.
