@@ -9,7 +9,6 @@
 
         private ExerciseSettings()
         {
-
         }
 
         public static ExerciseSettings Instance
@@ -54,17 +53,30 @@
         {
             string result = string.Empty;
 
-            Type type = typeof(ExerciseSettings);
-            PropertyInfo[] propertyInfos = type.GetProperties();
+            //Type type = typeof(ExerciseSettings);
+            //PropertyInfo[] propertyInfos = type.GetProperties();
 
-            for (int i = 0; i < propertyInfos.Length; i++)
-            {
-                result += $"{propertyInfos[i].Name}-{propertyInfos[i].GetValue(this)}";
-                if (i != propertyInfos.Length - 1)
-                {
-                    result += "\n";
-                }
-            }
+            //for (int i = 0; i < propertyInfos.Length; i++)
+            //{
+            //    result += $"{propertyInfos[i].Name}-{propertyInfos[i].GetValue(Instance)}";
+            //    if (i != propertyInfos.Length - 1)
+            //    {
+            //        result += "\n";
+            //    }
+            //}
+
+            result = $"{nameof(NumberOfWords)}-{NumberOfWords}\n" +
+                $"{nameof(IsAllIncluded)}-{IsAllIncluded}\n" +
+                $"{nameof(IsAnimalsIncluded)}-{IsAnimalsIncluded}\n" +
+                $"{nameof(IsArtsIncluded)}-{IsArtsIncluded}\n" +
+                $"{nameof(IsFamilyIncluded)}-{IsFamilyIncluded}\n" +
+                $"{nameof(IsGoingOutIncluded)}-{IsGoingOutIncluded}\n" +
+                $"{nameof(IsHomeIncluded)}-{IsHomeIncluded}\n" +
+                $"{nameof(IsLifeIncluded)}-{IsLifeIncluded}\n" +
+                $"{nameof(IsOthersIncluded)}-{IsOthersIncluded}\n" +
+                $"{nameof(IsSportIncluded)}-{IsSportIncluded}\n" +
+                $"{nameof(IsVehiclesIncluded)}-{IsVehiclesIncluded}\n" +
+                $"{nameof(IsWorkIncluded)}-{IsWorkIncluded}";
 
             return result;
         }

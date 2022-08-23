@@ -2,11 +2,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using System.Collections.Generic;
-using Language_exercise.BL.Model;
-
 namespace Language_exercise.ViewModels
 {
+    using System.Collections.Generic;
+    using Language_exercise.BL.Model;
+
     /// <summary>
     /// ViewModel class for Statistics UserControl.
     /// </summary>

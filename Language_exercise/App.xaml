@@ -11,6 +11,7 @@
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Comic Sans MS"/>
         </Style>
         <Style x:Key="RoundedTextBox" TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -29,12 +30,7 @@
                                 HorizontalScrollBarVisibility="Hidden"
                                 VerticalScrollBarVisibility="Hidden"/>
                         </Border>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="true">
-                                <Setter Property="BorderBrush" TargetName="border" Value="Red"/>
-                                <Setter Property="Foreground" Value="Red" />
-
-                            </Trigger>
+                            <ControlTemplate.Triggers>
                             <Trigger Property="IsFocused" Value="true">
                                 <Setter Property="Foreground" Value="Black" />
                                 <Setter Property="BorderBrush" TargetName="border" Value="Blue"/>

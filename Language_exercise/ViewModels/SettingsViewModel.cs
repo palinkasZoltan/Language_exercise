@@ -2,12 +2,13 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-using System.Windows.Input;
-using Language_exercise.BL;
-using Language_exercise.BL.BL.Model;
-
 namespace Language_exercise.ViewModels
 {
+    using System.Windows.Input;
+    using GalaSoft.MvvmLight.Command;
+    using Language_exercise.BL;
+    using Language_exercise.BL.BL.Model;
+
     /// <summary>
     /// ViewModel for Settings UserControl.
     /// </summary>
@@ -21,9 +22,12 @@ namespace Language_exercise.ViewModels
         {
             _settingsLogic = setLogic;
             this.settings = ExerciseSettings.Instance;
+            this.SaveSettingsCommand = new RelayCommand(() => SaveSettings());
         }
 
         public ICommand SaveSettingsCommand { get; set; }
+
+        #region Binding properties
 
         public int NumberOfWords
         {
@@ -192,6 +196,8 @@ namespace Language_exercise.ViewModels
                 OnPropertyChanged(nameof(IsWorkIncluded));
             }
         }
+
+        #endregion
 
         private void SaveSettings()
         {

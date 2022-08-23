@@ -5,7 +5,6 @@
 namespace Language_exercise.BL
 {
     using Language_exercise.BL.Model;
-    using Repository;
     using Repository.Interfaces;
 
     /// <summary>
@@ -37,7 +36,7 @@ namespace Language_exercise.BL
 
             WordSuccessRate[] mostSuccessfulWords = everyWord.OrderByDescending(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
             WordSuccessRate[] leastSuccessfulWords = everyWord.OrderBy(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
-        
+
             statistic.MostSuccessfulWords = mostSuccessfulWords;
             statistic.LeastSuccessfulWords = leastSuccessfulWords;
             statistic.EveryWord = everyWord;

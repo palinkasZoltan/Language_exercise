@@ -23,5 +23,15 @@ namespace Repository
         {
             return dc.GetExistingDatabaseFileNames();
         }
+
+        public void WriteIntoFileByDictionaryName(string FileName, List<string> newWords)
+        {
+            dc.WriteFile(FileName, newWords);
+        }
+
+        public void WriteStatistics(string fileName, List<string> newLine)
+        {
+            dc.WriteStatistics(fileName, newLine);
+        }
     }
 }

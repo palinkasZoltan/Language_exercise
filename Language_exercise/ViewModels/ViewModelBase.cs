@@ -6,11 +6,12 @@ namespace Language_exercise.ViewModels
 {
     using System;
     using System.ComponentModel;
+    using Microsoft.Toolkit.Mvvm.ComponentModel;
 
     /// <summary>
     /// Contains everything which will definitely be needed by any ViewModel.
     /// </summary>
-    public abstract class ViewModelBase : INotifyPropertyChanged, IDisposable
+    public abstract class ViewModelBase : ObservableRecipient, INotifyPropertyChanged, IDisposable
     {
         /// <inheritdoc/>
         public event PropertyChangedEventHandler PropertyChanged;

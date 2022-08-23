@@ -33,7 +33,7 @@
                 string temp = settingsData[i];
                 Type type = typeof(ExerciseSettings);
                 PropertyInfo prop = type.GetProperty(temp.Split('-')[0]);
-                if (index == 0)
+                if (i == 0)
                 {
                     prop.SetValue(settings, int.Parse(temp.Split('-')[1]));
                 }

@@ -5,7 +5,6 @@
     using System.Linq;
     using System.Reflection;
     using Language_exercise.BL.BL.Model;
-    using Repository;
     using Repository.Interfaces;
 
     public class DictionaryLogic : IDictionaryLogic
@@ -40,7 +39,43 @@
 
         public List<string> GetExistingDictionaryFileNames()
         {
-            return repo.GetExistingDatabaseFileNames().ToList();
+            return repo.GetExistingDatabaseFileNames().Select(fileName => fileName.Replace(".txt", string.Empty)).ToList();
+        }
+
+        public void WriteAddtitionalWordsIntoTheirSpecifiedDictionary(ICollection<AdditionalWordListViewModel> additionalWords)
+        {
+            Dictionary<string, List<string>> sortedWords = SortAdditionalWordsByDictionaries(additionalWords);
+
+            foreach (var item in sortedWords)
+            {
+                repo.WriteIntoFileByDictionaryName(item.Key, item.Value);
+            }
+
+            List<string> wordsToStatistics = additionalWords.Select(word => word.WordInTranslatedLanguage + "-0-0-0").ToList();
+
+            string statFileName = "Stats_of_german_words";
+
+            repo.WriteStatistics(statFileName, wordsToStatistics);
+
+        }
+
+        private Dictionary<string, List<string>> SortAdditionalWordsByDictionaries(ICollection<AdditionalWordListViewModel> additionalWordListViews )
+        {
+            Dictionary<string, List<string>> sortedWords = new Dictionary<string, List<string>>();
+
+            foreach (var word in additionalWordListViews)
+            {
+                string concatenatedWordPair = word.WordInTranslatedLanguage + "-" + word.WordInOriginalLanguage;
+
+                if (!sortedWords.ContainsKey(word.FileName))
+                {
+                    sortedWords.Add(word.FileName, new List<string>());
+                }
+
+                sortedWords[word.FileName].Add(concatenatedWordPair);
+            }
+
+            return sortedWords;
         }
 
         private string[] GetFilenamesFromTopicSettings(ExerciseSettings settings)

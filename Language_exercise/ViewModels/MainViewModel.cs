@@ -5,6 +5,7 @@
 namespace Language_exercise.ViewModels
 {
     using System.Windows.Input;
+    using Language_exercise.BL;
     using Language_exercise.Commands;
     using Language_exercise.Stores;
 
@@ -29,7 +30,7 @@ namespace Language_exercise.ViewModels
 
         public ICommand ChangeToOtherCommand { get; set; }
 
-        public MainViewModel(NavigationStore navStore)
+        public MainViewModel(NavigationStore navStore, IStatisticsLogic statLogic)
         {
             navigationStore = navStore;
             navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
@@ -37,8 +38,7 @@ namespace Language_exercise.ViewModels
             ChangeToExerciseCommand = new NavigateExerciseCommand(navigationStore);
             ChangeToOtherCommand = new NavigateOtherCommand(navigationStore);
             ChangeToSettingsCommand = new NavigateSettingsCommand(navigationStore);
-            ChangeToStatisticsCommand = new NavigateStatisticsCommand(navigationStore);
-
+            ChangeToStatisticsCommand = new NavigateStatisticsCommand(navigationStore, statLogic);
         }
 
         private void OnCurrentViewModelChanged()

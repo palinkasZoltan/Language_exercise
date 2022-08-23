@@ -16,7 +16,7 @@ namespace Language_exercise.DL
         /// <returns>The text of the file in a raw, IEnumerable format.</returns>
         public IEnumerable<string> ReadSingleFile(string fileName)
         {
-            IEnumerable<string> lines = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\File_DB\" + fileName + ".txt");
+            IEnumerable<string> lines = File.ReadAllLines(Directory.GetCurrentDirectory() + @"\File_DB\NativeDictionaries\" + fileName + ".txt");
 
             return lines;
         }
@@ -38,24 +38,21 @@ namespace Language_exercise.DL
         /// <param name="newText">Text which needs to be written in the specified file.</param>
         public void WriteFile(string fileName, List<string> newText)
         {
-            fileName = Directory.GetCurrentDirectory() + @"\File_DB\" + fileName;
+            fileName = Directory.GetCurrentDirectory() + @"\File_DB\NativeDictionaries\" + fileName + ".txt";
 
-            using (FileStream fs = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.Write))
-            {
-                StreamWriter streamWriter = new StreamWriter(fs);
-                foreach (string text in newText)
-                {
-                    streamWriter.WriteLine(text);
-                }
+            File.AppendAllLines(fileName, newText);
+        }
 
-                streamWriter.Close();
-                fs.Close();
-            }
+        public void WriteStatistics(string fileName, List<string> newLines)
+        {
+            fileName = Directory.GetCurrentDirectory() + @"\File_DB\Statistics\" + fileName + ".txt";
+
+            File.AppendAllLines(fileName, newLines);
         }
 
         public IEnumerable<string> GetExistingDatabaseFileNames()
         {
-            return Directory.EnumerateFiles("File_DB").Select(Path.GetFileName).ToArray();
+            return Directory.EnumerateFiles(@"File_DB\NativeDictionaries").Select(Path.GetFileName).ToArray();
         }
 
         /// <summary>
@@ -80,7 +77,7 @@ namespace Language_exercise.DL
         /// <returns>The current statistics in a raw string IEnumerable format.</returns>
         public IEnumerable<string> ReadStatistics()
         {
-            return this.ReadSingleFile(@"Statistics\Stats_of_german_words");
+            return File.ReadAllLines(Directory.GetCurrentDirectory() + @"\File_DB\Statistics\Stats_of_german_words.txt");
         }
 
         /// <summary>
@@ -89,9 +86,11 @@ namespace Language_exercise.DL
         /// <returns>The current settings in a raw string array format.</returns>
         public string[] ReadExerciseSettings()
         {
-            string[] settingsData = File.ReadAllLines("Settings.txt");
+            //string[] settingsData = File.ReadAllLines("Settings.txt");
 
-            return settingsData;
+            //return settingsData;
+
+            return File.ReadAllLines(Directory.GetCurrentDirectory() + @"\Settings.txt");
         }
 
         /// <summary>
@@ -104,9 +103,16 @@ namespace Language_exercise.DL
             {
                 StreamWriter sw = new StreamWriter(fs);
 
-                foreach (string s in newSettings)
+                for (int i = 0; i < newSettings.Length; i++)
                 {
-                    sw.WriteLine(s);
+                    if (i < newSettings.Length - 1)
+                    {
+                        sw.WriteLine(newSettings[i]);
+                    }
+                    else
+                    {
+                        sw.Write(newSettings[i]);
+                    }
                 }
 
                 sw.Close();
@@ -117,7 +123,7 @@ namespace Language_exercise.DL
         {
             IEnumerable<string> dictionary = new List<string>();
 
-            string[] dir = Directory.GetFiles("File_DB");
+            string[] dir = Directory.GetFiles(@"File_DB\NativeDictionaries\");
             foreach (string file in dir)
             {
                 dictionary = dictionary.Concat(this.ReadSingleFile(file));
