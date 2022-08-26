@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Language_exercise.UserControls"
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="800">
-    <Grid Background="#FF396FA2" Name="exerciseGrid">
+    <Grid Name="exerciseGrid">
         <Grid.Resources>
             <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter"/>
         </Grid.Resources>
@@ -53,7 +53,6 @@
                 Content="Reset" 
                 FontSize="22" 
                 FontWeight="Bold" 
-                Background="#FF396FA2" 
                 HorizontalAlignment="Right" 
                 Width="200" 
                 Command="{Binding Path=InitiateNewCommand}"
@@ -62,7 +61,6 @@
                 Content="Submit" 
                 FontSize="22" 
                 FontWeight="Bold" 
-                Background="#FF396FA2" 
                 HorizontalAlignment="Right" 
                 Width="200" 
                 Command="{Binding Path=SubmitCommand}"

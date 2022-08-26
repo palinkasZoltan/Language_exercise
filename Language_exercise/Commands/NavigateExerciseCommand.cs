@@ -6,18 +6,18 @@ namespace Language_exercise.Commands
 {
     using Language_exercise.Stores;
 
-    internal class NavigateExerciseCommand : CommandBase
+    internal class NavigateExerciseCommand : NavigationCommandBase
     {
-        private readonly NavigationStore navStore;
-
-        public NavigateExerciseCommand(NavigationStore navigationStore)
+        public NavigateExerciseCommand(NavigationStore store)
+            : base(store)
         {
-            navStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
-            navStore.CurrentViewModel = ViewModelLocator.ExerciseViewModel;
+            navStore.CurrentViewModel = ViewModelLocator.ReadyMadeVocabularyExerciseViewModel;
+            navStore.CurrentFrameViewModel = ViewModelLocator.ExerciseFrameViewModel;
+
         }
     }
 }

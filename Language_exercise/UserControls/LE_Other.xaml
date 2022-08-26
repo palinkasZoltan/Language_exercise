@@ -14,7 +14,7 @@
             <RowDefinition Height="60"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Extend German vocabulary" Background="#FF396FA2" FontSize="30" Foreground="White" HorizontalContentAlignment="Center"/>
+        <Label Grid.Row="0" Content="Extend German vocabulary" FontSize="30" Foreground="White" HorizontalContentAlignment="Center"/>
         <Grid Name="addNewWord" Grid.Row="1">
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
@@ -42,7 +42,7 @@
                     <TextBox Name="englishVers" Text="{Binding Path=OriginalWord}" Grid.Row="1" Grid.Column="1"  Style="{StaticResource ResourceKey=RoundedTextBox}" Width="280" Height="75"/>
                 </Grid>
                 <ListView Grid.Column="1" ItemsSource="{Binding Path=AdditionalWordListViews, UpdateSourceTrigger=PropertyChanged}" 
-                          SelectedItem="{Binding Path=SelectedListItem, UpdateSourceTrigger=PropertyChanged}">
+                          SelectedItem="{Binding Path=SelectedListItem, UpdateSourceTrigger=PropertyChanged}" BorderBrush="#649EFF">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Center" />
@@ -67,17 +67,15 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Button x:Name="AddToListButton" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="24" Foreground="White" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding Path=AddToListCommand}"/>
-                <Button x:Name="AddToDictionary" Grid.Column="0" Grid.Row="1" FontWeight="Bold" FontSize="24" Foreground="White" Content="Add list to dictionary" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding Path=AddToDictionaryCommand}"/>
+                <Button x:Name="AddToListButton" Grid.Column="1" Grid.Row="1" FontWeight="Bold" FontSize="24" Foreground="White" Content="Add to list" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding Path=AddToListCommand}"/>
+                <Button x:Name="AddToDictionary" Grid.Column="0" Grid.Row="1" FontWeight="Bold" FontSize="24" Foreground="White" Content="Add list to dictionary" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Command="{Binding Path=AddToDictionaryCommand}"/>
                 <Button x:Name="Undo" Grid.Column="1" Grid.Row="0" FontWeight="Bold"
-                        FontSize="24" Foreground="White" Content="Undo"
-                        Background="#FF396FA2" VerticalContentAlignment="Center"
+                        FontSize="24" Foreground="White" Content="Undo" VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center" Command="{Binding Path=UndoCommand}"
                         HorizontalAlignment="Right" Width="200"
                         />
                 <Button x:Name="Delete_Selected" Grid.Column="1" Grid.Row="0" FontWeight="Bold"
-                        FontSize="24" Foreground="White" Content="Delete selected"
-                        Background="#FF396FA2" VerticalContentAlignment="Center"
+                        FontSize="24" Foreground="White" Content="Delete selected" VerticalContentAlignment="Center"
                         HorizontalContentAlignment="Center" Command="{Binding Path=DeleteSelectedCommand}"
                         HorizontalAlignment="Left" Width="200"
                         />

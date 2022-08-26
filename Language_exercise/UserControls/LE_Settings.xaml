@@ -84,7 +84,7 @@
                     <Label Grid.Column="5" HorizontalContentAlignment="Left" FontSize="8" Content=" 30"/>                    
                 </Grid>
                 <Label Grid.Row="3" Content="(If there is not enough words in the specified dictionary, the current maximum number will be selected.)" FontSize="8" HorizontalContentAlignment="Center"  VerticalContentAlignment="Top"/>
-                <Button Grid.Row="4" x:Name="saveChanges" Content="Save settings" FontSize="20" Foreground="White" Height="50" VerticalAlignment="Center" Width="400" Background="#FF396FA2" Command="{Binding Path=SaveSettingsCommand}"/>
+                <Button Grid.Row="4" x:Name="saveChanges" Content="Save settings" FontSize="20" Foreground="White" Height="50" VerticalAlignment="Center" Width="400" Command="{Binding Path=SaveSettingsCommand}"/>
             </Grid>
         </Grid>
     </Grid>

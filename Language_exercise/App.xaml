@@ -12,7 +12,19 @@
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
+            <Setter Property="Background" Value="#649EFF"/>
         </Style>
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#649EFF"/>
+            <Setter Property="BorderBrush" Value="#649EFF"/>
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="#649EFF"/>
+        </Style>
+            <Style TargetType="ProgressBar">
+                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderThickness" Value="0"/>
+            </Style>
         <Style x:Key="RoundedTextBox" TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -21,7 +33,7 @@
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Border x:Name="border"
                             CornerRadius="80"
-                            BorderBrush="#FF396FA2"
+                            BorderBrush="#649EFF"
                             BorderThickness="2"
                             Background="#fff"
                             >
@@ -41,10 +53,10 @@
             </Setter>
             </Style>
             <Style x:Key="HeaderButtonStyle" TargetType="Button">
-                <Setter Property="Background" Value="#FF396FA2"/>
+                <Setter Property="Background" Value="#649EFF"/>
                 <Setter Property="Foreground" Value="White"/>
                 <Setter Property="FontSize" Value="21"/>
-                <Setter Property="BorderBrush" Value="#FF396FA2"/>
+                <Setter Property="BorderBrush" Value="#649EFF"/>
             </Style>
         </ResourceDictionary>
     </Application.Resources>

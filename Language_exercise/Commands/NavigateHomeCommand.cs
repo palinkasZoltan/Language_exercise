@@ -6,18 +6,17 @@ namespace Language_exercise.Commands
 {
     using Language_exercise.Stores;
 
-    internal class NavigateHomeCommand : CommandBase
+    internal class NavigateHomeCommand : NavigationCommandBase
     {
-        private readonly NavigationStore navStore;
-
-        public NavigateHomeCommand(NavigationStore navigationStore)
+        public NavigateHomeCommand(NavigationStore store)
+            : base(store)
         {
-            navStore = navigationStore;
         }
 
         public override void Execute(object? parameter)
         {
             navStore.CurrentViewModel = ViewModelLocator.HomeViewModel;
+            navStore.CurrentFrameViewModel = ViewModelLocator.MainFrameViewModel;
         }
     }
 }

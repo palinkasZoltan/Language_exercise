@@ -24,13 +24,13 @@
             </Grid>
         </DataTemplate>
     </UserControl.Resources>
-    <Grid Name="StatGrid" Background="#FF396FA2">
+    <Grid Name="StatGrid" Background="#649EFF">
         <Grid.Resources>
             <Style TargetType="ProgressBar">
                 <Setter Property="Minimum" Value="0"/>
                 <Setter Property="Maximum" Value="100"/>
                 <Setter Property="Height" Value="10"/>
-                <Setter Property="Background" Value="#FF396FA2"/>
+                <Setter Property="Background" Value="#649EFF"/>
                 <Setter Property="VerticalAlignment" Value="Top"/>
             </Style>
             <Style x:Key="LeftPercentageLabelStyle" TargetType="Label">

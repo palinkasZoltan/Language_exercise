@@ -11,6 +11,14 @@ namespace Language_exercise.Stores
     {
         private ViewModelBase _currentViewModel;
 
+        private ViewModelBase _currentFrameViewModel;
+
+        public NavigationStore()
+        {
+            //CurrentViewModel = ViewModelLocator.HomeViewModel;
+            //CurrentFrameViewModel = ViewModelLocator.MainFrameViewModel;
+        }
+
         public ViewModelBase CurrentViewModel
         {
             get => _currentViewModel;
@@ -21,9 +29,27 @@ namespace Language_exercise.Stores
             }
         }
 
+        public ViewModelBase CurrentFrameViewModel
+        {
+            get => _currentFrameViewModel;
+
+            set
+            {
+                _currentFrameViewModel = value;
+                OnCurrentFrameViewModelChanged();
+            }
+        }
+
         public event Action CurrentViewModelChanged;
 
+        public event Action CurrentFrameViewModelChanged;
+
         private void OnCurrentViewModelChanged()
+        {
+            CurrentViewModelChanged?.Invoke();
+        }
+
+        private void OnCurrentFrameViewModelChanged()
         {
             CurrentViewModelChanged?.Invoke();
         }

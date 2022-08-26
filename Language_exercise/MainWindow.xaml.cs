@@ -1,4 +1,8 @@
-﻿namespace Language_exercise
+﻿// <copyright file="MainWindow.xaml.cs" company="PlaceholderCompany">
+// Copyright (c) PlaceholderCompany. All rights reserved.
+// </copyright>
+
+namespace Language_exercise
 {
     using System.Windows;
     using Language_exercise.BL;
@@ -8,8 +12,8 @@
     /// </summary>
     public partial class MainWindow : Window
     {
-        ISettingsLogic settingsLogic;
-        IStatisticsLogic statisticsLogic;
+        private ISettingsLogic settingsLogic;
+        private IStatisticsLogic statisticsLogic;
 
         public MainWindow(IStatisticsLogic statLogic, ISettingsLogic setLogic)
         {

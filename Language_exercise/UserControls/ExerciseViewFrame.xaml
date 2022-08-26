@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Language_exercise.UserControls.ExerciseViewFrame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:Language_exercise.UserControls.Exercises"
+             xmlns:viewModel="clr-namespace:Language_exercise.ViewModels.Exercises"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Name="ContentFrameGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Premade" Grid.Column="0" Command="{Binding Path=PremadeExerciseCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Custom" Grid.Column="1" Command="{Binding Path=CustomExerciseCommand}"/>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Phrases" Grid.Column="2" Command="{Binding Path=PhraseExerciseCommand}"/>
+        </Grid>
+        <ContentControl Grid.Row="2" Name="contentControl" Content="{Binding Path=CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModel:ReadyMadeVocabularyExerciseViewModel}">
+                    <view:ReadyMadeVocabularyExerciseView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:CustomMadeVocabularyExerciseViewModel}">
+                    <view:CustomMadeVocabularyExerciseView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:PhrasesExerciseViewModel}">
+                    <view:PhraseExerciseView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</UserControl>

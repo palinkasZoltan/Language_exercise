@@ -7,14 +7,13 @@ namespace Language_exercise.Commands
     using Language_exercise.BL;
     using Language_exercise.Stores;
 
-    internal class NavigateStatisticsCommand : CommandBase
+    internal class NavigateStatisticsCommand : NavigationCommandBase
     {
-        private readonly NavigationStore navStore;
         private IStatisticsLogic logic;
 
         public NavigateStatisticsCommand(NavigationStore navigationStore, IStatisticsLogic logic)
+            : base(navigationStore)
         {
-            navStore = navigationStore;
             this.logic = logic;
         }
 

@@ -6,7 +6,7 @@ namespace Language_exercise.BL
 {
     using Language_exercise.BL.BL.Model;
 
-    public class ExerciseLogic
+    public class ExerciseLogic : IExerciseLogic
     {
         private ExerciseSettings settings;
 

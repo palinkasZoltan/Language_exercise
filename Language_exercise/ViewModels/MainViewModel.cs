@@ -20,30 +20,28 @@ namespace Language_exercise.ViewModels
 
         public ViewModelBase CurrentViewModel => navigationStore.CurrentViewModel;
 
-        public ICommand ChangeToHomeCommand { get; set; }
+        public ViewModelBase CurrentFrameViewModel => navigationStore.CurrentFrameViewModel;
 
-        public ICommand ChangeToExerciseCommand { get; set; }
-
-        public ICommand ChangeToStatisticsCommand { get; set; }
-
-        public ICommand ChangeToSettingsCommand { get; set; }
-
-        public ICommand ChangeToOtherCommand { get; set; }
-
-        public MainViewModel(NavigationStore navStore, IStatisticsLogic statLogic)
+        public MainViewModel(NavigationStore navStore)
         {
             navigationStore = navStore;
             navigationStore.CurrentViewModelChanged += OnCurrentViewModelChanged;
-            ChangeToHomeCommand = new NavigateHomeCommand(navigationStore);
-            ChangeToExerciseCommand = new NavigateExerciseCommand(navigationStore);
-            ChangeToOtherCommand = new NavigateOtherCommand(navigationStore);
-            ChangeToSettingsCommand = new NavigateSettingsCommand(navigationStore);
-            ChangeToStatisticsCommand = new NavigateStatisticsCommand(navigationStore, statLogic);
+            navigationStore.CurrentViewModelChanged += OnCurrentFrameViewModelChanged;
+
+            HomeCommand = new NavigateHomeCommand(navigationStore);
+            HomeCommand.Execute(null);
         }
+
+        public ICommand HomeCommand { get; set; }
 
         private void OnCurrentViewModelChanged()
         {
             OnPropertyChanged(nameof(CurrentViewModel));
+        }
+
+        private void OnCurrentFrameViewModelChanged()
+        {
+            OnPropertyChanged(nameof(CurrentFrameViewModel));
         }
     }
 }

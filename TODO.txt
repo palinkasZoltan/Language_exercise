@@ -9,3 +9,13 @@ Next up:
 Later:
 	-Figure out how to bundle up controls
 	-
+
+
+Exercise extension plan:
+	Rearrange MainView layout
+		- Only the header should be the own of this View
+		- The Buttons have to be a child elements control
+		- The CurrentViewModel property has to be kind of "global", because several other views will need to access it
+		- The unused View-s has to be Disposed
+		- When switching to an other bigger part (e.g. ExerciseView), the buttons should be replaced with that Views' own buttons
+		- 

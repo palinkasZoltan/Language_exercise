@@ -12,6 +12,7 @@ namespace Language_exercise
     using Language_exercise.DL;
     using Language_exercise.Stores;
     using Language_exercise.ViewModels;
+    using Language_exercise.ViewModels.Exercises;
     using Microsoft.Extensions.DependencyInjection;
     using Repository;
     using Repository.Interfaces;
@@ -33,10 +34,11 @@ namespace Language_exercise
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddSingleton<DataConnection>();
-            services.AddSingleton<ExerciseLogic>();
+            services.AddScoped<IExerciseLogic, ExerciseLogic>();
             services.AddScoped<ISettingsLogic, SettingsLogic>();
             services.AddScoped<IDictionaryLogic, DictionaryLogic>();
             services.AddScoped<IStatisticsLogic, StatisticsLogic>();
+            services.AddScoped<IExerciseLogic, ExerciseLogic>();
             services.AddScoped<IStatisticsRepository, StatisticsRepository>();
             services.AddScoped<ISettingsRepository, SettingsRepository>();
             services.AddScoped<IDictionaryRepository, DictionaryRepository>();
@@ -45,6 +47,11 @@ namespace Language_exercise
             services.AddSingleton<StatisticsViewModel>();
             services.AddSingleton<OtherViewModel>();
             services.AddSingleton<HomeViewModel>();
+            services.AddSingleton<CustomMadeVocabularyExerciseViewModel>();
+            services.AddSingleton<ReadyMadeVocabularyExerciseViewModel>();
+            services.AddSingleton<PhrasesExerciseViewModel>();
+            services.AddSingleton<ExerciseFrameViewModel>();
+            services.AddSingleton<MainFrameViewModel>();
             services.AddSingleton<NavigationStore>();
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<MainWindow>();

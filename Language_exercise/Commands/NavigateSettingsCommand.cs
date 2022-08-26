@@ -6,13 +6,11 @@ namespace Language_exercise.Commands
 {
     using Language_exercise.Stores;
 
-    internal class NavigateSettingsCommand : CommandBase
+    internal class NavigateSettingsCommand : NavigationCommandBase
     {
-        private readonly NavigationStore navStore;
-
-        public NavigateSettingsCommand(NavigationStore navigationStore)
+        public NavigateSettingsCommand(NavigationStore store)
+            : base(store)
         {
-            navStore = navigationStore;
         }
 
         public override void Execute(object? parameter)

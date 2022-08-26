@@ -5,6 +5,7 @@
 namespace Language_exercise
 {
     using Language_exercise.ViewModels;
+    using Language_exercise.ViewModels.Exercises;
 
     /// <summary>
     /// Provides a way to get services from the serviceProvider.
@@ -56,6 +57,46 @@ namespace Language_exercise
             get
             {
                 return App.ServiceProvider.GetService(typeof(OtherViewModel)) as OtherViewModel;
+            }
+        }
+
+        public static ViewModelBase ReadyMadeVocabularyExerciseViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(ReadyMadeVocabularyExerciseViewModel)) as ReadyMadeVocabularyExerciseViewModel;
+            }
+        }
+
+        public static ViewModelBase CustomMadeVocabularyExerciseViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(CustomMadeVocabularyExerciseViewModel)) as CustomMadeVocabularyExerciseViewModel;
+            }
+        }
+
+        public static ViewModelBase PhrasesExerciseViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(PhrasesExerciseViewModel)) as PhrasesExerciseViewModel;
+            }
+        }
+
+        public static ViewModelBase MainFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(MainFrameViewModel)) as MainFrameViewModel;
+            }
+        }
+
+        public static ViewModelBase ExerciseFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(ExerciseFrameViewModel)) as ExerciseFrameViewModel;
             }
         }
     }

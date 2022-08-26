@@ -9,47 +9,26 @@
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
         Title="Language trainer" Height="550" Width="800">
-    <Grid Background="#FF396FA2">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="360"/>
+            <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
-        <Label Content="Language trainer" HorizontalAlignment="Left" VerticalAlignment="Center" FontWeight="Bold" FontSize="24" Width="400" Grid.Row="0"/>
+        <Button Content="Language trainer" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left"
+                FontWeight="Bold" FontSize="24" Width="200" Grid.Row="0"
+                Foreground="White" Command="{Binding Path=HomeCommand}"/>
         <Label Content="German" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontStyle="Italic" VerticalAlignment="Center" FontSize="24" Width="400" Grid.Row="0"/>
-        <Grid Grid.Row="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Home" Grid.Column="0" Command="{Binding Path=ChangeToHomeCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Exercise" Grid.Column="1" Command="{Binding Path=ChangeToExerciseCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Statistics" Grid.Column="2" Command="{Binding Path=ChangeToStatisticsCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Settings" Grid.Column="3" Command="{Binding Path=ChangeToSettingsCommand}"/>
-            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}" Content="Others" Grid.Column="4" Command="{Binding Path=ChangeToOtherCommand}"/>
-        </Grid>
-        <ContentControl Grid.Row="2" Name="contentControl" Content="{Binding Path=CurrentViewModel}">
+        <ContentControl Grid.Row="1" Content="{Binding Path=CurrentFrameViewModel}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
-                    <view:LE_Homepage/>
+                <DataTemplate DataType="{x:Type viewModel:MainFrameViewModel}">
+                    <view:MainViewFrame/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModel:ExerciseViewModel}">
-                    <view:LE_Exercise/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModel:OtherViewModel}">
-                    <view:LE_Other/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModel:SettingsViewModel}">
-                    <view:LE_Settings/>
-                </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModel:StatisticsViewModel}">
-                    <view:LE_Statistics/>
+                <DataTemplate DataType="{x:Type viewModel:ExerciseFrameViewModel}">
+                    <view:ExerciseViewFrame/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
+
         <!--<Label Grid.Row="2" Content="{Binding Path=test}" FontSize="30"/>-->
     </Grid>
 </Window>
