@@ -7,8 +7,6 @@ namespace Language_exercise
     using System;
     using System.Windows;
     using Language_exercise.BL;
-    using Language_exercise.BL.BL.Model;
-    using Language_exercise.BL.Model;
     using Language_exercise.DL;
     using Language_exercise.Stores;
     using Language_exercise.ViewModels;
@@ -24,6 +22,9 @@ namespace Language_exercise
     {
         public static IServiceProvider ServiceProvider;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="App"/> class.
+        /// </summary>
         public App()
         {
             ServiceCollection services = new ServiceCollection();
@@ -34,14 +35,21 @@ namespace Language_exercise
         private void ConfigureServices(ServiceCollection services)
         {
             services.AddSingleton<DataConnection>();
-            services.AddScoped<IExerciseLogic, ExerciseLogic>();
-            services.AddScoped<ISettingsLogic, SettingsLogic>();
-            services.AddScoped<IDictionaryLogic, DictionaryLogic>();
-            services.AddScoped<IStatisticsLogic, StatisticsLogic>();
-            services.AddScoped<IExerciseLogic, ExerciseLogic>();
-            services.AddScoped<IStatisticsRepository, StatisticsRepository>();
-            services.AddScoped<ISettingsRepository, SettingsRepository>();
-            services.AddScoped<IDictionaryRepository, DictionaryRepository>();
+            services.AddSingleton<NavigationStore>();
+            AddRepos(services);
+            AddLogic(services);
+            AddViewModels(services);
+            services.AddSingleton<MainWindow>();
+        }
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            var mainWindow = ServiceProvider.GetService<MainWindow>();
+            mainWindow?.Show();
+        }
+
+        private void AddViewModels(ServiceCollection services)
+        {
             services.AddSingleton<ExerciseViewModel>();
             services.AddSingleton<SettingsViewModel>();
             services.AddSingleton<StatisticsViewModel>();
@@ -52,15 +60,23 @@ namespace Language_exercise
             services.AddSingleton<PhrasesExerciseViewModel>();
             services.AddSingleton<ExerciseFrameViewModel>();
             services.AddSingleton<MainFrameViewModel>();
-            services.AddSingleton<NavigationStore>();
             services.AddSingleton<MainViewModel>();
-            services.AddSingleton<MainWindow>();
         }
 
-        protected override void OnStartup(StartupEventArgs e)
+        private void AddRepos(ServiceCollection services)
         {
-            var mainWindow = ServiceProvider.GetService<MainWindow>();
-            mainWindow.Show();
+            services.AddScoped<IStatisticsRepository, StatisticsRepository>();
+            services.AddScoped<ISettingsRepository, SettingsRepository>();
+            services.AddScoped<IDictionaryRepository, DictionaryRepository>();
+        }
+
+        private void AddLogic(ServiceCollection services)
+        {
+            services.AddScoped<IExerciseLogic, ExerciseLogic>();
+            services.AddScoped<ISettingsLogic, SettingsLogic>();
+            services.AddScoped<IDictionaryLogic, DictionaryLogic>();
+            services.AddScoped<IStatisticsLogic, StatisticsLogic>();
+            services.AddScoped<IExerciseLogic, ExerciseLogic>();
         }
     }
 }
