@@ -11,7 +11,12 @@ namespace Language_exercise.BL.BL.Model
             this.WordsToExercise = wordsToExercise;
         }
 
-        public Dictionary<string, string> WordsToExercise { get; set; }
+        public Exercise()
+        {
+
+        }
+
+        public virtual Dictionary<string, string> WordsToExercise { get; set; }
 
         private Stack<string> CreateStackFromCollection(ICollection<string> collection)
         {

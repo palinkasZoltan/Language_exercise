@@ -1,8 +1,5 @@
 ﻿namespace Language_exercise.BL.BL.Model
 {
-    using System;
-    using System.Reflection;
-
     public class ExerciseSettings
     {
         private static ExerciseSettings instance;

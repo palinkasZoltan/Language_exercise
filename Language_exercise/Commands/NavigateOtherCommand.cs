@@ -15,7 +15,8 @@ namespace Language_exercise.Commands
 
         public override void Execute(object? parameter)
         {
-            navStore.CurrentViewModel = ViewModelLocator.OtherViewModel;
+            navStore.CurrentViewModel = ViewModelLocator.ExtendDictionaryViewModel;
+            navStore.CurrentFrameViewModel = ViewModelLocator.OtherFrameViewModel;
         }
     }
 }

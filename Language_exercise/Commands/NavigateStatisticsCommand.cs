@@ -20,6 +20,7 @@ namespace Language_exercise.Commands
         public override void Execute(object? parameter)
         {
             navStore.CurrentViewModel = ViewModelLocator.StatisticsViewModel;
+            navStore.CurrentFrameViewModel = ViewModelLocator.StatisticsFrameViewModel;
             logic.GetWordStatictics();
         }
     }

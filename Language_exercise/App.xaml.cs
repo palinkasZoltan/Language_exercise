@@ -11,6 +11,8 @@ namespace Language_exercise
     using Language_exercise.Stores;
     using Language_exercise.ViewModels;
     using Language_exercise.ViewModels.Exercises;
+    using Language_exercise.ViewModels.Frames;
+    using Language_exercise.ViewModels.Others;
     using Microsoft.Extensions.DependencyInjection;
     using Repository;
     using Repository.Interfaces;
@@ -50,17 +52,28 @@ namespace Language_exercise
 
         private void AddViewModels(ServiceCollection services)
         {
+            AddExerciseViewModels(services);
             services.AddSingleton<ExerciseViewModel>();
             services.AddSingleton<SettingsViewModel>();
             services.AddSingleton<StatisticsViewModel>();
             services.AddSingleton<OtherViewModel>();
             services.AddSingleton<HomeViewModel>();
-            services.AddSingleton<CustomMadeVocabularyExerciseViewModel>();
-            services.AddSingleton<ReadyMadeVocabularyExerciseViewModel>();
-            services.AddSingleton<PhrasesExerciseViewModel>();
+            services.AddSingleton<CreateCustomDictionaryViewModel>();
+            services.AddSingleton<ExtendDictionaryViewModel>();
+            services.AddSingleton<OtherFrameViewModel>();
+            services.AddSingleton<SettingsFrameViewModel>();
+            services.AddSingleton<StatisticsFrameViewModel>();
+            services.AddSingleton<HomeFrameViewModel>();
             services.AddSingleton<ExerciseFrameViewModel>();
             services.AddSingleton<MainFrameViewModel>();
             services.AddSingleton<MainViewModel>();
+        }
+
+        private void AddExerciseViewModels(ServiceCollection services)
+        {
+            services.AddSingleton<CustomMadeVocabularyExerciseViewModel>();
+            services.AddSingleton<ReadyMadeVocabularyExerciseViewModel>();
+            services.AddSingleton<PhrasesExerciseViewModel>();
         }
 
         private void AddRepos(ServiceCollection services)

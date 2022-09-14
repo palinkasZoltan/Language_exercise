@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="Language_exercise.UserControls.Others.ExtendAppDictionaryView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Language_exercise.UserControls.Others"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1620">
+    <UserControl.InputBindings>        
+        <KeyBinding Key="Return" Command="{Binding Path=EnterKeyCommand}" />
+        <KeyBinding Key="Delete" Command="{Binding Path=DeleteSelectedByKeyCommand}"/>
+    </UserControl.InputBindings>
+    <Grid>
+        <Grid.Resources>
+            
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label
+            Grid.Row="0" 
+            Content="Extend German vocabulary"
+            FontSize="30"
+            Foreground="White"
+            HorizontalContentAlignment="Center"
+            />
+        <Grid Name="addNewWord" Grid.Row="1">
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="100"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="0" 
+                        Content="German" 
+                        HorizontalContentAlignment="Center"
+                        FontSize="24" 
+                        Width="100" 
+                        Height="80"
+                        />
+                    <Label 
+                        Grid.Row="1"
+                        Grid.Column="0" 
+                        Content="English"
+                        HorizontalContentAlignment="Center"
+                        FontSize="24"
+                        Width="100" 
+                        Height="80"
+                        />
+                    <TextBox
+                        Name="germanVers"
+                        Style="{StaticResource ResourceKey=RoundedTextBox}"
+                        Text="{Binding Path=TranslatedWord}"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Width="280"
+                        Height="75"
+                        />
+                    <TextBox
+                        Name="englishVers"
+                        Style="{StaticResource ResourceKey=RoundedTextBox}" 
+                        Text="{Binding Path=OriginalWord}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Width="280"
+                        Height="75"
+                        />
+                </Grid>
+                
+                <DataGrid 
+                    Grid.Column="1"
+                    ItemsSource="{Binding Path=AdditionalWordListViews}" 
+                    SelectedItem="{Binding Path=SelectedListItem}"
+                    ColumnWidth="*"
+                    />
+
+            </Grid>
+            <Grid Grid.Row="1" Name="buttonGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Button
+                    Style="{StaticResource ExtendViewButtonStyle}"
+                    x:Name="AddToListButton"
+                    Grid.Column="1"
+                    Grid.Row="1"
+                    Content="Add to list"
+                    Command="{Binding Path=AddToListCommand}"
+                    />
+                <Button
+                    Style="{StaticResource ExtendViewButtonStyle}"
+                    x:Name="AddToDictionary"
+                    Grid.Column="0"
+                    Grid.Row="1"
+                    Content="Add list to dictionary"
+                    Command="{Binding Path=AddToDictionaryCommand}"
+                    />
+                <Button 
+                    x:Name="Undo"
+                    Style="{StaticResource ExtendViewButtonStyle}"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Content="Undo"
+                    Command="{Binding Path=UndoCommand}"
+                    HorizontalAlignment="Right"
+                    Width="200"
+                    />
+                <Button 
+                    Style="{StaticResource ExtendViewButtonStyle}"
+                    x:Name="Delete_Selected"
+                    Grid.Column="1"
+                    Grid.Row="0"
+                    Content="Delete selected"
+                    Command="{Binding Path=DeleteSelectedCommand}"
+                    HorizontalAlignment="Left"
+                    Width="200"
+                    />
+                <ListBox
+                    ItemsSource="{Binding Path=currentFileNames}"
+                    SelectedItem="{Binding Path=selectedFile}"
+                    BorderBrush="{Binding Path=ListBoxBorderBrush}"
+                    >
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <!--<Button x:Name="AddToListButton" Grid.Column="0" Grid.Row="0" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

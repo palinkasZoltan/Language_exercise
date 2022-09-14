@@ -6,6 +6,24 @@
              xmlns:local="clr-namespace:Language_exercise.UserControls.Exercises"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label" x:Key="ReadyMadeExerciseLabelStlye" BasedOn="{StaticResource BasicLabelStyle}">
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="FontSize" Value="24"/>
+                <Setter Property="FontWeight" Value="Bold"/>                
+            </Style>
+            <!-- Used for Submit and Resume buttons -->
+            <Style TargetType="Button" x:Key="SubmitButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="FontWeight" Value="Bold"/>
+                <Setter Property="HorizontalAlignment" Value="Right"/>
+                <Setter Property="Width" Value="200"/>
+            </Style>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid Name="exerciseGrid">
         <Grid.Resources>
             <BooleanToVisibilityConverter x:Key="VisibleIfTrueConverter"/>
@@ -22,48 +40,98 @@
                 <ColumnDefinition Width="600"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Grid.Column="0" FontSize="20" FontWeight="Bold" Foreground="White" Content="Fill in the blank boxes with the correct translation!"/>
-            <Label Grid.Column="1" FontSize="15" FontWeight="Bold" Foreground="Black" Content="{Binding Path=DonePerAll, Mode=TwoWay}" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" />
+            <Label 
+                Grid.Column="0"
+                Style="{StaticResource ReadyMadeExerciseLabelStlye}"
+                FontSize="20" 
+                FontWeight="Bold"
+                Content="Fill in the blank boxes with the correct translation!"
+                />
+            <Label 
+                Content="{Binding Path=DonePerAll, Mode=TwoWay}" 
+                Grid.Column="1" 
+                FontSize="15" 
+                FontWeight="Bold" 
+                Foreground="Black"
+                />
         </Grid>
-        <ProgressBar Name="progressBar" Minimum="0" Maximum="100" Grid.Row="1" Value="{Binding Path=ProgressbarValue, Mode=TwoWay}"></ProgressBar>
-        <Label Grid.Row="2" Content="English:" FontSize="24" Foreground="White" Width="400" HorizontalAlignment="Left" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="2" Content="German:" FontSize="24" Foreground="White" Width="400" HorizontalAlignment="Right" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="3" FontSize="24" Foreground="White"
-               Width="400" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left"
-               Content="{Binding Path=WordInOriginalLang, UpdateSourceTrigger=PropertyChanged}"/>
-        <TextBox Grid.Row="3" Name="result" Width="400" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Right"
-                 Text="{Binding Path=ResultText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+        <ProgressBar 
+            Value="{Binding Path=ProgressbarValue, Mode=TwoWay}"
+            Name="progressBar" 
+            Minimum="0" 
+            Maximum="100" 
+            Grid.Row="1" 
+            />
+        <Label 
+            Grid.Row="2"
+            Style="{StaticResource ReadyMadeExerciseLabelStlye}"
+            Content="English:" 
+            Width="400" 
+            HorizontalAlignment="Left" 
+            />
+        <Label 
+            Grid.Row="2" 
+            Style="{StaticResource ReadyMadeExerciseLabelStlye}"
+            Content="German:" 
+            Width="400" 
+            HorizontalAlignment="Right" 
+            />
+        <Label 
+            Content="{Binding Path=WordInOriginalLang, UpdateSourceTrigger=PropertyChanged}"
+            Style="{StaticResource ReadyMadeExerciseLabelStlye}"
+            Grid.Row="3" 
+            Width="400"
+            HorizontalAlignment="Left"
+            />
+        <TextBox 
+            Text="{Binding Path=ResultText, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Grid.Row="3" 
+            Name="result" 
+            Width="400" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center" 
+            HorizontalAlignment="Right"
                  >
             <TextBox.InputBindings>
-                <KeyBinding Command="{Binding Path=EnterKeyCommand}"
-                    Key="Return"/>
+                <KeyBinding 
+                    Command="{Binding Path=EnterKeyCommand}"
+                    Key="Return"
+                    />
             </TextBox.InputBindings>
         </TextBox>
-
-
-        <Label Grid.Row="4" Width="200" HorizontalAlignment="Left">
+        <Label 
+            Grid.Row="4" 
+            Width="200" 
+            HorizontalAlignment="Left"
+            >
             <StackPanel>
-                <Image x:Name="resultSmiley" Source="{Binding Path=ImageSource, UpdateSourceTrigger=PropertyChanged}"/>
+                <Image 
+                    x:Name="resultSmiley" 
+                    Source="{Binding Path=ImageSource, UpdateSourceTrigger=PropertyChanged}"
+                    />
             </StackPanel>
         </Label>
-        <Label Grid.Row="4" Width="400" HorizontalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="20" 
-               Content="{Binding Path=ResultMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-               Background="{Binding Path=ResultBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label
+            Grid.Row="4" 
+            Width="400" 
+            HorizontalAlignment="Center" 
+            HorizontalContentAlignment="Center" 
+            VerticalContentAlignment="Center" 
+            FontSize="20" 
+            Content="{Binding Path=ResultMessage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            Background="{Binding Path=ResultBackground, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            />
         <Button Grid.Row="4"
                 Content="Reset" 
-                FontSize="22" 
-                FontWeight="Bold" 
-                HorizontalAlignment="Right" 
-                Width="200" 
+                Style="{StaticResource SubmitButtonStyle}"
                 Command="{Binding Path=InitiateNewCommand}"
-                Visibility="{Binding Path=ResetIsVisible, Converter={StaticResource VisibleIfTrueConverter}}"/>
+                Visibility="{Binding Path=ResetIsVisible, Converter={StaticResource VisibleIfTrueConverter}}"
+                />
         <Button Grid.Row="4" 
                 Content="Submit" 
-                FontSize="22" 
-                FontWeight="Bold" 
-                HorizontalAlignment="Right" 
-                Width="200" 
+                Style="{StaticResource SubmitButtonStyle}"
                 Command="{Binding Path=SubmitCommand}"
-                Visibility="{Binding Path=SubmitIsVisible, Converter={StaticResource VisibleIfTrueConverter}}"/>
+                Visibility="{Binding Path=SubmitIsVisible, Converter={StaticResource VisibleIfTrueConverter}}"
+                />
     </Grid>
 </UserControl>

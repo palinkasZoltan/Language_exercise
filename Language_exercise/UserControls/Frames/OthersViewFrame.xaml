@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="Language_exercise.UserControls.Frames.OthersViewFrame"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Language_exercise.UserControls.Frames"
+             xmlns:viewModel="clr-namespace:Language_exercise.ViewModels.Others"
+             xmlns:view="clr-namespace:Language_exercise.UserControls.Others"
+             mc:Ignorable="d" 
+             d:DesignHeight="1080" d:DesignWidth="1620">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Name="ContentFrameGrid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}"
+                    Content="Extend dictionary"
+                    Grid.Column="0"
+                    Command="{Binding Path=NavigateToExtendCommand}"
+                    />
+            <Button Style="{StaticResource ResourceKey=HeaderButtonStyle}"
+                    Content="Create custom dictionary"
+                    Grid.Column="1"
+                    Command="{Binding Path=NavigateToCreateCustomCommand}"
+                    />
+        </Grid>
+        <ContentControl Grid.Row="1" Name="contentControl" Content="{Binding Path=CurrentViewModel}">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModel:CreateCustomDictionaryViewModel}">
+                    <view:CreateCustomExerciseVocabulary/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:ExtendDictionaryViewModel}">
+                    <view:ExtendAppDictionaryView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+    </Grid>
+</UserControl>

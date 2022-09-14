@@ -4,7 +4,7 @@
 
     public interface IDictionaryLogic
     {
-        Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings();
+        Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings(ExerciseSettings settings);
 
         public List<string> GetExistingDictionaryFileNames();
 

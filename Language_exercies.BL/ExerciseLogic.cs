@@ -20,7 +20,7 @@ namespace Language_exercise.BL
 
         public Exercise ConstructNewExercise()
         {
-            var wordsToExercise = dictionaryLogic.GetWordsFromMultipleDictionariesBySettings();
+            var wordsToExercise = dictionaryLogic.GetWordsFromMultipleDictionariesBySettings(settings);
 
             Exercise newExercise = new Exercise(wordsToExercise);
 

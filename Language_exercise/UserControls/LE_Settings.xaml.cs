@@ -4,10 +4,7 @@
 
 namespace Language_exercise.UserControls
 {
-    using System.Windows;
     using System.Windows.Controls;
-    using Language_exercise.BL;
-    using Language_exercise.BL.BL.Model;
 
     /// <summary>
     /// Interaction logic for LE_Settings.xaml.

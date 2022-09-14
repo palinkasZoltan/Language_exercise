@@ -2,11 +2,11 @@
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
-namespace Language_exercise.ViewModels
+namespace Language_exercise.ViewModels.Frames
 {
     using System.Windows.Input;
-    using Language_exercise.Stores;
     using Language_exercise.Commands;
+    using Language_exercise.Stores;
 
     public class ExerciseFrameViewModel : ViewModelBase
     {

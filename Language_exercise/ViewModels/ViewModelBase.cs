@@ -27,5 +27,7 @@ namespace Language_exercise.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        //public abstract void SetupCommands();
     }
 }

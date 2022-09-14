@@ -11,15 +11,15 @@
     {
         private IDictionaryRepository repo;
 
+        private ExerciseSettings settings;
+
         public DictionaryLogic(IDictionaryRepository dictRepo)
         {
             repo = dictRepo;
         }
 
-        public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings()
+        public Dictionary<string, string> GetWordsFromMultipleDictionariesBySettings(ExerciseSettings settings)
         {
-            ExerciseSettings settings = ExerciseSettings.Instance;
-
             string[] fileNames = this.GetFilenamesFromTopicSettings(settings);
 
             IEnumerable<string> rawWordPairs = this.repo.GetMultipleDictionatriesBySettings(fileNames);
@@ -56,10 +56,9 @@
             string statFileName = "Stats_of_german_words";
 
             repo.WriteStatistics(statFileName, wordsToStatistics);
-
         }
 
-        private Dictionary<string, List<string>> SortAdditionalWordsByDictionaries(ICollection<AdditionalWordListViewModel> additionalWordListViews )
+        private Dictionary<string, List<string>> SortAdditionalWordsByDictionaries(ICollection<AdditionalWordListViewModel> additionalWordListViews)
         {
             Dictionary<string, List<string>> sortedWords = new Dictionary<string, List<string>>();
 

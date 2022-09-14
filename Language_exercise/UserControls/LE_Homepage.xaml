@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Language_exercise.UserControls"
+             xmlns:wpfui="http://schemas.lepo.co/wpfui/2022/xaml"
              mc:Ignorable="d" 
              d:DesignHeight="360" d:DesignWidth="800">
     <Grid>
@@ -14,7 +15,7 @@
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         <Label Grid.Row="0" Content="Welcome to Language Exercise!" FontSize="24" HorizontalContentAlignment="Center"/>
-        <Label Grid.Row="1"/>
+
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -22,5 +23,6 @@
             </Grid.ColumnDefinitions>
             <Button Grid.Column="1" Content="Exit" FontSize="20" BorderBrush="#649EFF" Click="Exit_click"/>
         </Grid>
+        
     </Grid>
 </UserControl>

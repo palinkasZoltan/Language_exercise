@@ -14,7 +14,6 @@ namespace Language_exercise.ViewModels.Exercises
 
     public class ReadyMadeVocabularyExerciseViewModel : ViewModelBase
     {
-
         private IStatisticsLogic statisticsLogic;
 
         private Exercise currentExercise;

@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		TODO.txt = TODO.txt
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Language_exercise.Test", "Language_exercise.Test\Language_exercise.Test.csproj", "{38386D77-3130-4621-A499-954A2D7FD5A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Language_exercise.Test", "Language_exercise.Test\Language_exercise.Test.csproj", "{38386D77-3130-4621-A499-954A2D7FD5A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

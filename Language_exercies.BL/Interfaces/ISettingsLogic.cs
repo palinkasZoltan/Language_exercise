@@ -1,6 +1,4 @@
-﻿using Language_exercise.BL.BL.Model;
-
-namespace Language_exercise.BL
+﻿namespace Language_exercise.BL
 {
     public interface ISettingsLogic
     {

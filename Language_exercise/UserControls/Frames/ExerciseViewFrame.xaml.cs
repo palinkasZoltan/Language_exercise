@@ -1,4 +1,4 @@
-﻿namespace Language_exercise.UserControls
+﻿namespace Language_exercise.UserControls.Frames
 {
     using System.Windows.Controls;
 

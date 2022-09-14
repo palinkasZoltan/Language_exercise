@@ -4,7 +4,6 @@
 
 namespace Language_exercise.Commands
 {
-    using System;
     using Language_exercise.Stores;
 
     internal class NavigateReadyExerciseCommand : NavigationCommandBase

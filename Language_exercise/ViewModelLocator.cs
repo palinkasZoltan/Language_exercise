@@ -6,6 +6,8 @@ namespace Language_exercise
 {
     using Language_exercise.ViewModels;
     using Language_exercise.ViewModels.Exercises;
+    using Language_exercise.ViewModels.Frames;
+    using Language_exercise.ViewModels.Others;
 
     /// <summary>
     /// Provides a way to get services from the serviceProvider.
@@ -97,6 +99,54 @@ namespace Language_exercise
             get
             {
                 return App.ServiceProvider.GetService(typeof(ExerciseFrameViewModel)) as ExerciseFrameViewModel;
+            }
+        }
+
+        public static HomeFrameViewModel HomeFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(HomeFrameViewModel)) as HomeFrameViewModel;
+            }
+        }
+
+        public static StatisticsFrameViewModel StatisticsFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(StatisticsFrameViewModel)) as StatisticsFrameViewModel;
+            }
+        }
+
+        public static SettingsFrameViewModel SettingsFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(SettingsFrameViewModel)) as SettingsFrameViewModel;
+            }
+        }
+
+        public static OtherFrameViewModel OtherFrameViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(OtherFrameViewModel)) as OtherFrameViewModel;
+            }
+        }
+
+        public static CreateCustomDictionaryViewModel CreateCustomDictionaryViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(CreateCustomDictionaryViewModel)) as CreateCustomDictionaryViewModel;
+            }
+        }
+
+        public static ExtendDictionaryViewModel ExtendDictionaryViewModel
+        {
+            get
+            {
+                return App.ServiceProvider.GetService(typeof(ExtendDictionaryViewModel)) as ExtendDictionaryViewModel;
             }
         }
     }

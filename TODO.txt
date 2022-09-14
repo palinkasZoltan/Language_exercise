@@ -1,10 +1,7 @@
 Next up: 
-	-Clean up the whole code base
-	-Erase hidden dependencies
-	-Refactor where it is needed
 	-Figure out which parts of ExerciseViewModel can be extracted to ExerciseLogic
-	-Change UserControls to simple Views
-
+	-Extend the "OtherView" with the option of creating Custom Exercises
+	-Implement Custom Exercise View inside the Exercise frame
 
 Later:
 	-Figure out how to bundle up controls
@@ -14,7 +11,7 @@ Later:
 Exercise extension plan:
 	Rearrange MainView layout
 		- Only the header should be the own of this View
-		- The Buttons have to be a child elements control
+		- The Buttons have to be a child element's controls
 		- The CurrentViewModel property has to be kind of "global", because several other views will need to access it
 		- The unused View-s has to be Disposed
 		- When switching to an other bigger part (e.g. ExerciseView), the buttons should be replaced with that Views' own buttons

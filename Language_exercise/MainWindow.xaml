@@ -5,30 +5,79 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Language_exercise"
         xmlns:viewModel="clr-namespace:Language_exercise.ViewModels"
+        xmlns:viewFrameModel="clr-namespace:Language_exercise.ViewModels.Frames"
         xmlns:view="clr-namespace:Language_exercise.UserControls"
+        xmlns:viewFrames="clr-namespace:Language_exercise.UserControls.Frames"
         mc:Ignorable="d"
         DataContext="{Binding Source={StaticResource Locator}, Path=MainViewModel}"
-        Title="Language trainer" Height="550" Width="800">
+        Title="Language trainer" Height="1080" Width="1920">
     <Grid>
-        <Grid.RowDefinitions>
+        <Grid.Resources>
+            <Style TargetType="Button" BasedOn="{StaticResource HeaderButtonStyle}">
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Background"  Value="#FF1F51A4"/>
+                    </Trigger>
+                </Style.Triggers>
+                <Setter Property="Width" Value="300"/>
+                <Setter Property="Background" Value="#FF1F51A4"/>
+                <Setter Property="BorderBrush" Value="#FF1F51A4"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="HorizontalAlignment" Value="Center"/>
+                <Setter Property="FontSize" Value="24"/>
+            </Style>
+        </Grid.Resources>
+        <!--<Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="400"/>
         </Grid.RowDefinitions>
         <Button Content="Language trainer" HorizontalAlignment="Left" VerticalAlignment="Center" HorizontalContentAlignment="Left"
                 FontWeight="Bold" FontSize="24" Width="200" Grid.Row="0"
                 Foreground="White" Command="{Binding Path=HomeCommand}"/>
-        <Label Content="German" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontStyle="Italic" VerticalAlignment="Center" FontSize="24" Width="400" Grid.Row="0"/>
-        <ContentControl Grid.Row="1" Content="{Binding Path=CurrentFrameViewModel}">
+        <Label Content="German" HorizontalAlignment="Right" HorizontalContentAlignment="Right" FontStyle="Italic" VerticalAlignment="Center" FontSize="24" Width="400" Grid.Row="0"/>-->
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0" Background="#FF1F51A4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Label Content="German" Grid.Row="0" Background="#FF1F51A4" Height="40" VerticalAlignment="Bottom" FontSize="24" HorizontalAlignment="Left" FontWeight="Thin" FontStyle="Italic" Foreground="#FFE0D2D2"/>
+            <Label Content="Language exercise" Background="#FF1F51A4" Grid.Row="0" FontSize="28" Width="250" Height="50" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+            <Button Grid.Row="1" Content="Home" Command="{Binding Path=HomeCommand}"/>
+            <Button Grid.Row="2" Content="Exercise" Command="{Binding Path=ChangeToExerciseCommand}"/>
+            <Button Grid.Row="3" Content="Statistics" Command="{Binding Path=ChangeToStatisticsCommand}"/>
+            <Button Grid.Row="4" Content="Settings" Command="{Binding Path=ChangeToSettingsCommand}"/>
+            <Button Grid.Row="5" Content="Others" Command="{Binding Path=ChangeToOtherCommand}"/>
+            <Button Grid.Row="6" Content="Exit"/>
+        </Grid>
+        <ContentControl Grid.Column="1" Content="{Binding Path=CurrentFrameViewModel}">
             <ContentControl.Resources>
-                <DataTemplate DataType="{x:Type viewModel:MainFrameViewModel}">
-                    <view:MainViewFrame/>
+                <DataTemplate DataType="{x:Type viewFrameModel:HomeFrameViewModel}">
+                    <viewFrames:HomeViewFrame/>
                 </DataTemplate>
-                <DataTemplate DataType="{x:Type viewModel:ExerciseFrameViewModel}">
-                    <view:ExerciseViewFrame/>
+                <DataTemplate DataType="{x:Type viewFrameModel:ExerciseFrameViewModel}">
+                    <viewFrames:ExerciseViewFrame/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewFrameModel:OtherFrameViewModel}">
+                    <viewFrames:OthersViewFrame/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewFrameModel:SettingsFrameViewModel}">
+                    <viewFrames:SettingsViewFrame/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewFrameModel:StatisticsFrameViewModel}">
+                    <viewFrames:StatisticsViewFrame/>
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
-
         <!--<Label Grid.Row="2" Content="{Binding Path=test}" FontSize="30"/>-->
     </Grid>
 </Window>
