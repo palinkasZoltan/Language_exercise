@@ -15,18 +15,35 @@
             <!--<Setter Property="FontFamily" Value="Comic Sans MS"/>-->
             <Setter Property="Background" Value="#649EFF"/>
         </Style>
+            
+            
         <Style TargetType="Button" x:Key="BaseButtonStyle">
             <Setter Property="Background" Value="#649EFF"/>
             <Setter Property="BorderBrush" Value="#649EFF"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
-        <Style TargetType="Grid">
+        <Style TargetType="Button" x:Key="ExtendViewButtonStyle" BasedOn="{StaticResource BaseButtonStyle}">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="HeaderButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#649EFF"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="21"/>
+            <Setter Property="BorderBrush" Value="#649EFF"/>
+        </Style>
+
+
+            <Style TargetType="Grid">
             <Setter Property="Background" Value="#649EFF"/>
         </Style>
         <Style TargetType="ProgressBar">
             <Setter Property="BorderBrush" Value="Black"/>
             <Setter Property="BorderThickness" Value="0"/>
-        </Style>
+        </Style> 
         <Style x:Key="RoundedTextBox" TargetType="TextBox">
             <Setter Property="VerticalContentAlignment" Value="Center"/>
             <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -34,15 +51,17 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
                         <Border x:Name="border"
-                    CornerRadius="80"
-                    BorderBrush="#649EFF"
-                    BorderThickness="2"
-                    Background="#fff"
-                    >
-                            <ScrollViewer x:Name="PART_ContentHost"
-                        Focusable="false"
-                        HorizontalScrollBarVisibility="Hidden"
-                        VerticalScrollBarVisibility="Hidden"/>
+                            CornerRadius="80"
+                            BorderBrush="#649EFF"
+                            BorderThickness="2"
+                            Background="White"
+                            >
+                            <ScrollViewer 
+                                x:Name="PART_ContentHost"
+                                Focusable="false"
+                                HorizontalScrollBarVisibility="Hidden"
+                                VerticalScrollBarVisibility="Hidden"
+                                />
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsFocused" Value="true">
@@ -53,12 +72,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
-        <Style x:Key="HeaderButtonStyle" TargetType="Button">
-            <Setter Property="Background" Value="#649EFF"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontSize" Value="21"/>
-            <Setter Property="BorderBrush" Value="#649EFF"/>
         </Style>
         </ResourceDictionary>
     </Application.Resources>

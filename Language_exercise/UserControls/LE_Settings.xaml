@@ -19,19 +19,41 @@
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Label Grid.Row="0" Content="Exercise settings" HorizontalContentAlignment="Left" FontSize="24"/>
-        <Grid x:Name="settingsGrid" Grid.Row="1">
+        <Label 
+            Grid.Row="0" 
+            Content="Exercise settings" 
+            HorizontalContentAlignment="Left" 
+            FontSize="24"
+            />
+        <Grid 
+            x:Name="settingsGrid" 
+            Grid.Row="1"
+            >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Grid x:Name="topicPickerGrid" Grid.Column="0">
+            <Grid 
+                x:Name="topicPickerGrid" 
+                Grid.Column="0"
+                >
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <CheckBox Grid.Row="0" Name="allCheckbox" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Content="All" FontSize="18" VerticalContentAlignment="Center"  IsChecked="{Binding Path=IsAllIncluded}"/>
-                <Grid Grid.Row="1" Name="otherTopicsGrid">
+                <CheckBox 
+                    Grid.Row="0"
+                    Name="allCheckbox"
+                    HorizontalAlignment="Center"
+                    Content="All" 
+                    FontSize="18" 
+                    VerticalContentAlignment="Center" 
+                    IsChecked="{Binding Path=IsAllIncluded}"
+                    />
+                <Grid 
+                    Grid.Row="1"
+                    Name="otherTopicsGrid"
+                    >
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
@@ -43,16 +65,86 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox Grid.Row="0" Grid.Column="0" Name="animalsCheckbox" HorizontalAlignment="Left" Content="Animals" Margin="69,0,0,0" IsChecked="{Binding Path=IsAnimalsIncluded}"/>
-                    <CheckBox Grid.Row="0" Grid.Column="1" Name="familyCheckbox" HorizontalAlignment="Center" Content="Family" IsChecked="{Binding Path=IsFamilyIncluded}"/>
-                    <CheckBox Grid.Row="1" Grid.Column="0" Name="sportCheckbox" HorizontalAlignment="Center" Content="Sport" IsChecked="{Binding Path=IsSportIncluded}"/>
-                    <CheckBox Grid.Row="1" Grid.Column="1" Name="goingOutCheckbox" HorizontalAlignment="Left" Content="Going out" Margin="65,0,0,0" IsChecked="{Binding Path=IsGoingOutIncluded}"/>
-                    <CheckBox Grid.Row="2" Grid.Column="0" Name="vehiclesCheckbox" HorizontalAlignment="Left" Content="Vehicles" Margin="69,0,0,0" IsChecked="{Binding Path=IsVehiclesIncluded}"/>
-                    <CheckBox Grid.Row="2" Grid.Column="1" Name="artsCheckbox" HorizontalAlignment="Left" Content="Arts" Margin="65,0,0,0" IsChecked="{Binding Path=IsArtsIncluded}"/>
-                    <CheckBox Grid.Row="3" Grid.Column="0" Name="homeCheckbox" HorizontalAlignment="Left" Content="Home" Margin="68,0,0,0" IsChecked="{Binding Path=IsHomeIncluded}"/>
-                    <CheckBox Grid.Row="3" Grid.Column="1" Name="lifeCheckbox" HorizontalAlignment="Left" Content="Life" Margin="65,0,0,0" IsChecked="{Binding Path=IsLifeIncluded}"/>
-                    <CheckBox Grid.Row="4" Grid.Column="0" Name="workCheckbox" HorizontalAlignment="Center" Content="Work" IsChecked="{Binding Path=IsWorkIncluded}"/>
-                    <CheckBox Grid.Row="4" Grid.Column="1" Name="otherCheckbox" HorizontalAlignment="Left" Content="Other" Margin="65,0,0,0" IsChecked="{Binding Path=IsOthersIncluded}"/>
+                    <CheckBox 
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Name="animalsCheckbox" 
+                        HorizontalAlignment="Center"
+                        Content="Animals"
+                        IsChecked="{Binding Path=IsAnimalsIncluded}"
+                        />
+                    <CheckBox 
+                        Grid.Row="0" 
+                        Grid.Column="1" 
+                        Name="familyCheckbox" 
+                        HorizontalAlignment="Center" 
+                        Content="Family" 
+                        IsChecked="{Binding Path=IsFamilyIncluded}"
+                        />
+                    <CheckBox 
+                        Grid.Row="1" 
+                        Grid.Column="0"
+                        Name="sportCheckbox"
+                        HorizontalAlignment="Center"
+                        Content="Sport"
+                        IsChecked="{Binding Path=IsSportIncluded}"
+                        />
+                    <CheckBox
+                        Grid.Row="1" 
+                        Grid.Column="1" 
+                        Name="goingOutCheckbox" 
+                        HorizontalAlignment="Center"
+                        Content="Going out" 
+                        IsChecked="{Binding Path=IsGoingOutIncluded}"
+                        />
+                    <CheckBox 
+                        Grid.Row="2" 
+                        Grid.Column="0"
+                        Name="vehiclesCheckbox" 
+                        HorizontalAlignment="Center" 
+                        Content="Vehicles"
+                        IsChecked="{Binding Path=IsVehiclesIncluded}"
+                        />
+                    <CheckBox 
+                        Grid.Row="2" 
+                        Grid.Column="1" 
+                        Name="artsCheckbox" 
+                        HorizontalAlignment="Center"
+                        Content="Arts"
+                        IsChecked="{Binding Path=IsArtsIncluded}"
+                        />
+                    <CheckBox
+                        Grid.Row="3"
+                        Grid.Column="0"
+                        Name="homeCheckbox"
+                        HorizontalAlignment="Center" 
+                        Content="Home" 
+                        IsChecked="{Binding Path=IsHomeIncluded}"
+                        />
+                    <CheckBox 
+                        Grid.Row="3" 
+                        Grid.Column="1"
+                        Name="lifeCheckbox"
+                        HorizontalAlignment="Center"
+                        Content="Life"
+                        IsChecked="{Binding Path=IsLifeIncluded}"
+                        />
+                    <CheckBox
+                        Grid.Row="4"
+                        Grid.Column="0"
+                        Name="workCheckbox"
+                        HorizontalAlignment="Center"
+                        Content="Work" 
+                        IsChecked="{Binding Path=IsWorkIncluded}"
+                        />
+                    <CheckBox
+                        Grid.Row="4"
+                        Grid.Column="1"
+                        Name="otherCheckbox"
+                        HorizontalAlignment="Center" 
+                        Content="Other" 
+                        IsChecked="{Binding Path=IsOthersIncluded}"
+                        />
                 </Grid>
             </Grid>
             <Grid Grid.Column="1">
@@ -63,10 +155,26 @@
                     <RowDefinition Height="20"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Content="Number of words to answer:" FontSize="20" Foreground="White" VerticalContentAlignment="Center" HorizontalAlignment="Center"/>
-                <Slider Grid.Row="1" VerticalAlignment="Center" Width="300"  Minimum="5" Maximum="30"
+                <Label 
+                    Grid.Row="0" 
+                    Content="Number of words to answer:" 
+                    FontSize="20"
+                    Foreground="White" 
+                    VerticalContentAlignment="Center"
+                    HorizontalAlignment="Center"
+                    />
+                <Slider 
+                    Grid.Row="1" 
+                    VerticalAlignment="Center"
+                    Width="300" 
+                    Minimum="5"
+                    Maximum="30"
                     Ticks="5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30"
-                    TickPlacement="BottomRight" TickFrequency="10" IsSnapToTickEnabled="True" Value="{Binding Path=NumberOfWords}"/>
+                    TickPlacement="BottomRight"
+                    TickFrequency="10"
+                    IsSnapToTickEnabled="True"
+                    Value="{Binding Path=NumberOfWords}"
+                    />
                 <Grid Grid.Row="2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
@@ -76,15 +184,65 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Label Grid.Column="0" HorizontalContentAlignment="Right" FontSize="8" Content="5  "/>
-                    <Label Grid.Column="1" HorizontalContentAlignment="Right" FontSize="8" Content="10     "/>
-                    <Label Grid.Column="2" HorizontalContentAlignment="Center" FontSize="8" Content="   15"/>
-                    <Label Grid.Column="3" HorizontalContentAlignment="Center" FontSize="8" Content="20    "/>
-                    <Label Grid.Column="4" HorizontalContentAlignment="Left" FontSize="8" Content="     25"/>
-                    <Label Grid.Column="5" HorizontalContentAlignment="Left" FontSize="8" Content=" 30"/>                    
+                    <Label
+                        Grid.Column="0"
+                        HorizontalContentAlignment="Right"
+                        FontSize="8"
+                        Content="5  "
+                        />
+                    <Label 
+                        Grid.Column="1" 
+                        HorizontalContentAlignment="Right"
+                        FontSize="8"
+                        Content="10     "
+                        />
+                    <Label
+                        Grid.Column="2"
+                        HorizontalContentAlignment="Center"
+                        FontSize="8"
+                        Content="   15"
+                        />
+                    <Label
+                        Grid.Column="3" 
+                        HorizontalContentAlignment="Center"
+                        FontSize="8" 
+                        Content="20    "
+                        />
+                    <Label
+                        Grid.Column="4"
+                        HorizontalContentAlignment="Left" 
+                        FontSize="8" 
+                        Content="     25"
+                        />
+                    <Label
+                        Grid.Column="5"
+                        HorizontalContentAlignment="Left"
+                        FontSize="8"
+                        Content=" 30"
+                        />                    
                 </Grid>
-                <Label Grid.Row="3" Content="(If there is not enough words in the specified dictionary, the current maximum number will be selected.)" FontSize="8" HorizontalContentAlignment="Center"  VerticalContentAlignment="Top"/>
-                <Button Grid.Row="4" x:Name="saveChanges" Content="Save settings" FontSize="20" Foreground="White" Height="50" VerticalAlignment="Center" Width="400" Command="{Binding Path=SaveSettingsCommand}"/>
+                <Label 
+                    Grid.Row="3" 
+                    Content="(If there is not
+                        enough words in the 
+                        specified dictionary, 
+                        the current maximum number
+                        will be selected.)"
+                    FontSize="8" 
+                    HorizontalContentAlignment="Center" 
+                    VerticalContentAlignment="Top"
+                    />
+                <Button
+                    Grid.Row="4"
+                    x:Name="saveChanges"
+                    Content="Save settings"
+                    FontSize="20"
+                    Foreground="White"
+                    Height="50"
+                    VerticalAlignment="Center"
+                    Width="400"
+                    Command="{Binding Path=SaveSettingsCommand}"
+                    />
             </Grid>
         </Grid>
     </Grid>
