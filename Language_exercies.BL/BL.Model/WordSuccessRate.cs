@@ -4,13 +4,25 @@
 
 namespace Language_exercise.BL.Model
 {
+    using System;
+
     public class WordSuccessRate
     {
         private double numberOfAllAnswers;
 
         private double numberOfCorrectAnswers;
 
+        public WordSuccessRate(string word, int numberOfAllAnswers, double numberOfCorrectAnswers)
+        {
+            this.Word = word;
+            this.NumberOfAllAnswers = numberOfAllAnswers;
+            this.NumberOfCorrectAnswers = numberOfCorrectAnswers;
+            this.CorrectAnswerPercentage = numberOfAllAnswers == 0 ? 0 : ((double)(numberOfCorrectAnswers / numberOfAllAnswers)) * 100;
+        }
+
         public string Word { get; set; }
+
+        public double CorrectAnswerPercentage { get; set; }
 
         public double NumberOfAllAnswers
         {
@@ -40,7 +52,6 @@ namespace Language_exercise.BL.Model
             }
         }
 
-
         /// <summary>
         /// Gets the percentage of the correct answers as a string.
         /// </summary>
@@ -50,16 +61,6 @@ namespace Language_exercise.BL.Model
             {
                 return Math.Round(this.CorrectAnswerPercentage, 2) + "%";
             }
-        }
-
-        public double CorrectAnswerPercentage { get; set; }
-
-        public WordSuccessRate(string word, int numberOfAllAnswers, double numberOfCorrectAnswers)
-        {
-            this.Word = word;
-            this.NumberOfAllAnswers = numberOfAllAnswers;
-            this.NumberOfCorrectAnswers = numberOfCorrectAnswers;
-            this.CorrectAnswerPercentage = numberOfAllAnswers == 0 ? 0 : ((double)(numberOfCorrectAnswers / numberOfAllAnswers)) * 100;
         }
 
         private void RecalculateAnswerPercentageWhenAnswerNumberSet()

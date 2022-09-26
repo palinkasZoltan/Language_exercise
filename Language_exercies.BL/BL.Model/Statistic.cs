@@ -11,12 +11,18 @@ namespace Language_exercise.BL.Model
     {
         private static Statistic instance;
 
+        private List<WordSuccessRate> everyWord;
+
         private Statistic()
         {
-
         }
 
-        private List<WordSuccessRate> everyWord;
+        public Statistic(WordSuccessRate[] mostSuccessfulWords, WordSuccessRate[] leastSuccessfulWords, List<WordSuccessRate> everyWord)
+        {
+            this.MostSuccessfulWords = mostSuccessfulWords;
+            this.LeastSuccessfulWords = leastSuccessfulWords;
+            this.EveryWord = everyWord;
+        }
 
         public static Statistic Instance
         {
@@ -37,7 +43,7 @@ namespace Language_exercise.BL.Model
         public WordSuccessRate[] MostSuccessfulWords { get; set; }
 
         /// <summary>
-        /// Gets por sets the words which were answered correctly with the lowest percentage.
+        /// Gets or sets the words which were answered correctly with the lowest percentage.
         /// </summary>
         public WordSuccessRate[] LeastSuccessfulWords { get; set; }
 
@@ -58,13 +64,6 @@ namespace Language_exercise.BL.Model
                 this.MostSuccessfulWords = this.everyWord.OrderByDescending(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
                 this.LeastSuccessfulWords = this.everyWord.OrderBy(wordStat => wordStat.CorrectAnswerPercentage).Select(wordStat => wordStat).Take(5).ToArray();
             }
-        }
-
-        public Statistic(WordSuccessRate[] mostSuccessfulWords, WordSuccessRate[] leastSuccessfulWords, List<WordSuccessRate> everyWord)
-        {
-            this.MostSuccessfulWords = mostSuccessfulWords;
-            this.LeastSuccessfulWords = leastSuccessfulWords;
-            this.EveryWord = everyWord;
         }
     }
 }

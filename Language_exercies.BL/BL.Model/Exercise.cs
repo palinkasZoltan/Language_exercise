@@ -4,6 +4,9 @@
 
 namespace Language_exercise.BL.BL.Model
 {
+    /// <summary>
+    /// Contains every data an exercise usecase needs to function.
+    /// </summary>
     public class Exercise
     {
         public Exercise(Dictionary<string, string> wordsToExercise)
@@ -13,7 +16,6 @@ namespace Language_exercise.BL.BL.Model
 
         public Exercise()
         {
-
         }
 
         public virtual Dictionary<string, string> WordsToExercise { get; set; }

@@ -34,28 +34,35 @@
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="400"/>
+                    <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Label
+                    <Grid Grid.Row="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.3*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Label
+                        Style="{StaticResource BasicLabelStyle}"
                         Grid.Row="0"
                         Grid.Column="0" 
                         Content="German" 
                         HorizontalContentAlignment="Center"
                         FontSize="24" 
-                        Width="100" 
+                        Width="200" 
                         Height="80"
                         />
-                    <Label 
+                        <Label 
+                        Style="{StaticResource BasicLabelStyle}"
                         Grid.Row="1"
                         Grid.Column="0" 
                         Content="English"
@@ -64,32 +71,66 @@
                         Width="100" 
                         Height="80"
                         />
-                    <TextBox
+                        <TextBox
                         Name="germanVers"
                         Style="{StaticResource ResourceKey=RoundedTextBox}"
                         Text="{Binding Path=TranslatedWord}"
                         Grid.Row="0"
                         Grid.Column="1"
-                        Width="280"
+                        Width="400"
                         Height="75"
                         />
-                    <TextBox
+                        <TextBox
                         Name="englishVers"
                         Style="{StaticResource ResourceKey=RoundedTextBox}" 
                         Text="{Binding Path=OriginalWord}"
                         Grid.Row="1"
                         Grid.Column="1"
-                        Width="280"
+                        Width="400"
                         Height="75"
                         />
+                    </Grid>
+                    <ListBox
+                        Grid.Row="1"
+                        ItemsSource="{Binding Path=currentFileNames}"
+                        SelectedItem="{Binding Path=selectedFile}"
+                        BorderBrush="{Binding Path=ListBoxBorderBrush}"
+                        HorizontalContentAlignment="Center"
+                        >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding}" TextAlignment="Center"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
-                
+
                 <DataGrid 
                     Grid.Column="1"
                     ItemsSource="{Binding Path=AdditionalWordListViews}" 
                     SelectedItem="{Binding Path=SelectedListItem}"
                     ColumnWidth="*"
-                    />
+                    GridLinesVisibility="Horizontal"
+                    >
+                    <!--<Style TargetType="DataGrid">
+                        <Style.Setters>
+                            <Setter Property=""
+                        </Style.Setters>
+                    </Style>-->
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader"> 
+                            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.CellStyle>                        
+                        <Style TargetType="DataGridCell">
+                            <Setter Property="TextBlock.TextAlignment" Value="Center"/>
+                        </Style>
+                    </DataGrid.CellStyle>
+                </DataGrid>
 
             </Grid>
             <Grid Grid.Row="1" Name="buttonGrid">
@@ -125,34 +166,20 @@
                     Grid.Row="0"
                     Content="Undo"
                     Command="{Binding Path=UndoCommand}"
-                    HorizontalAlignment="Right"
+                    HorizontalAlignment="Center"
                     Width="200"
                     />
                 <Button 
                     Style="{StaticResource ExtendViewButtonStyle}"
                     x:Name="Delete_Selected"
-                    Grid.Column="1"
+                    Grid.Column="0"
                     Grid.Row="0"
                     Content="Delete selected"
                     Command="{Binding Path=DeleteSelectedCommand}"
-                    HorizontalAlignment="Left"
+                    HorizontalAlignment="Center"
                     Width="200"
                     />
-                <ListBox
-                    ItemsSource="{Binding Path=currentFileNames}"
-                    SelectedItem="{Binding Path=selectedFile}"
-                    BorderBrush="{Binding Path=ListBoxBorderBrush}"
-                    >
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding}"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
-
-                <!--<Button x:Name="AddToListButton" Grid.Column="0" Grid.Row="0" Content="Add to list" Background="#FF396FA2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>-->
+                
 
             </Grid>
         </Grid>
